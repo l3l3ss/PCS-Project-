@@ -1,7 +1,7 @@
-Quantum Chaos: Energy Level Statistics in Billiards
+# Quantum Chaos: Energy Level Statistics in Billiards
 
 Este proyecto explora la Conjetura de Bohigas-Giannoni-Schmit (BGS) , analizando cómo el caos en la mecánica clásica se manifiesta en los sistemas cuánticos a través de la estadística de niveles de energía.
-# Objetivo
+### Objetivo
 
 Investigar la distribución de espaciamientos entre niveles de energía adyacentes (si​=Ei+1​−Ei​)  para comparar dos tipos de sistemas:
 
@@ -9,7 +9,7 @@ Investigar la distribución de espaciamientos entre niveles de energía adyacent
 
     Sistemas Caóticos: Representados por el Estadio de Bunimovich, donde ocurre el fenómeno de "repulsión de niveles" siguiendo la distribución de Wigner-Dyson.
 
-# Metodología
+### Metodología
 
     Resolución numérica de la ecuación de Helmholtz mediante esquemas de diferencias finitas o el Método de Elementos de Contorno (BEM).
 
