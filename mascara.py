@@ -2,52 +2,42 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
-def crear_mascara(x, y, formato, frontera = True):
+def crear_mascara(nx, ny, formato, frontera=True):
     """
-    Crea un array 2D de dimensiones (x, y) que funciona como máscara.
-    
     Parámetros:
-    x (int): Longitud de la máscara (dimensión x).
-    y (int): Altura de la máscara (dimensión y).
-    formato (str): 'r' para rectángulo, 'c' para circular/estadio.
-    
-    Retorna:
-    np.ndarray: Array de booleanos que representa la máscara.
+    nx (int): Anchura de la máscara (dimensión x, columnas).
+    ny (int): Altura de la máscara (dimensión y, filas).
     """
     if formato == 'r':
-        mascara = np.ones((x, y), dtype=bool)
+        mascara = np.ones((ny, nx), dtype=bool)
     elif formato == 'c':
-        radio = y / 2.0
+        # El radio ahora depende de la altura (ny)
+        radio = ny / 2.0
         
-        # Generar una grilla de coordenadas
-        X, Y = np.ogrid[:x, :y]
+        # Generar coordenadas: Y son las filas (ny), X las columnas (nx)
+        Y, X = np.ogrid[:ny, :nx]
         
-        # Para que quede centrado en los índices del array, usamos (dim - 1) / 2
-        cy = (y - 1) / 2.0
-        cx1 = (y - 1) / 2.0
-        cx2 = (x - 1) - (y - 1) / 2.0
+        # Centro en el eje vertical (filas, y)
+        cy = (ny - 1) / 2.0
         
-        # Si x es menor que y, ajustamos los centros para mantener una lógica segura
-        if cx1 > cx2:
-            cx1, cx2 = cx2, cx1
-            
-        # Distancia al cuadrado a los centros de los círculos de los extremos
+        # Centros en el eje horizontal (columnas, x)
+        cx1 = (ny - 1) / 2.0           # Centro del semicírculo izquierdo
+        cx2 = (nx - 1) - (ny - 1) / 2.0 # Centro del semicírculo derecho
+        
+        # Distancia a los centros
         dist_izq = (X - cx1)**2 + (Y - cy)**2
         dist_der = (X - cx2)**2 + (Y - cy)**2
         
-        # Máscaras de los círculos (evaluadas con el radio al cuadrado)
         mascara_izq = dist_izq <= radio**2
         mascara_der = dist_der <= radio**2
         
-        # Máscara del rectángulo central que une los dos círculos
+        # El rectángulo central ahora se limita en el eje X
         mascara_rect = (X >= cx1) & (X <= cx2)
         
-        # La máscara final es la unión de los dos círculos y el rectángulo central
         mascara = mascara_izq | mascara_der | mascara_rect
     else:
-        raise ValueError("Formato inválido. Usa 'r' (rectangular) o 'c' (circular/estadio).")
+        raise ValueError("Formato inválido. Usa 'r' o 'c'.")
     
-    # Eliminar frontera (borde exterior)
     if frontera:
         mascara[0, :] = False
         mascara[-1, :] = False
