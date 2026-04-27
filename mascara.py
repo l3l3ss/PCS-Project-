@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 
-def crear_mascara(x, y, formato):
+def crear_mascara(x, y, formato, frontera = True):
     """
     Crea un array 2D de dimensiones (x, y) que funciona como máscara.
     
@@ -43,9 +43,18 @@ def crear_mascara(x, y, formato):
         mascara_rect = (X >= cx1) & (X <= cx2)
         
         # La máscara final es la unión de los dos círculos y el rectángulo central
-        return mascara_izq | mascara_der | mascara_rect
+        mascara = mascara_izq | mascara_der | mascara_rect
     else:
         raise ValueError("Formato inválido. Usa 'r' (rectangular) o 'c' (circular/estadio).")
+    
+    # Eliminar frontera (borde exterior)
+    if frontera:
+        mascara[0, :] = False
+        mascara[-1, :] = False
+        mascara[:, 0] = False
+        mascara[:, -1] = False
+    
+    return mascara
 
 
 
