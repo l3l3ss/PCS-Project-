@@ -72,8 +72,8 @@ def finite_difference(mascara):
     num_incog = 0
     
     # Asignamos un número de incógnita (0, 1, 2...) solo donde la máscara es True
-    for i in range(nx):
-        for j in range(ny):
+    for j in range(ny):
+        for i in range(nx):
             if mascara[i, j]:
                 mapa_indices[i, j] = num_incog
                 num_incog += 1
@@ -89,8 +89,8 @@ def finite_difference(mascara):
     cols = []
     data = []
 
-    for i in range(nx):
-        for j in range(ny):
+    for j in range(ny):
+        for i in range(nx):
             if not mascara[i, j]:
                 continue # Si es False, lo ignoramos por completo
                 
@@ -145,26 +145,25 @@ def encontrar_autovalores(MDF, eig): #MDF es la matrizz de difs finitas que se c
 
 
 ##Funcion creada con pablo para hacer prueba
-def crear_mascara(x, y, formato, frontera=True):
+def crear_mascara(x, y, formato, frontera = True):
     """
-    Crea un array 2D de dimensiones (y, x) que funciona como máscara.
+    Crea un array 2D de dimensiones (x, y) que funciona como máscara.
     
     Parámetros:
-    x (int): Ancho de la máscara (número de columnas).
-    y (int): Alto de la máscara (número de filas).
+    x (int): Longitud de la máscara (dimensión x).
+    y (int): Altura de la máscara (dimensión y).
     formato (str): 'r' para rectángulo, 'c' para circular/estadio.
-    frontera (bool): Si True, excluye los puntos de frontera (borde exterior).
     
     Retorna:
     np.ndarray: Array de booleanos que representa la máscara.
     """
     if formato == 'r':
-        mascara = np.ones((y, x), dtype=bool)
+        mascara = np.ones((x, y), dtype=bool)
     elif formato == 'c':
         radio = y / 2.0
         
         # Generar una grilla de coordenadas
-        Y, X = np.ogrid[:y, :x]
+        X, Y = np.ogrid[:x, :y]
         
         # Para que quede centrado en los índices del array, usamos (dim - 1) / 2
         cy = (y - 1) / 2.0
@@ -205,8 +204,8 @@ def crear_mascara(x, y, formato, frontera=True):
 mascara = crear_mascara(50, 100, 'r')
 A_simple = finite_difference_simple(50, 100)
 A_mascara = finite_difference(mascara)
-autov_simple = np.sort(encontrar_autovalores(A_simple, 500))
-autov_mascara = np.sort(encontrar_autovalores(A_mascara, 500))
+autov_simple = np.sort(encontrar_autovalores(A_simple, 20))
+autov_mascara = np.sort(encontrar_autovalores(A_mascara, 20))
 
 
 diferencias_autovalores = autov_simple - autov_mascara
