@@ -15,7 +15,7 @@ def crear_mascara(x, y, formato, frontera = True):
     np.ndarray: Array de booleanos que representa la máscara.
     """
     if formato == 'r':
-        return np.ones((x, y), dtype=bool)
+        mascara = np.ones((x, y), dtype=bool)
     elif formato == 'c':
         radio = y / 2.0
         
