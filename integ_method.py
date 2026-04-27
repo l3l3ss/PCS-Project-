@@ -1,25 +1,30 @@
+import numpy as np
+import scipy.sparse as sp
+import scipy.sparse.linalg as spla
+
 def finite_difference(mascara):
-    nx = mascara.shape[0]
-    ny = mascara.shape[1]
-    print(f"Dimensiones de la malla física: nx={nx}, ny={ny}")
+    # En la matriz, la dimensión 0 son las filas (altura, y) 
+    # y la dimensión 1 son las columnas (anchura, x)
+    ny = mascara.shape[0] # Altura
+    nx = mascara.shape[1] # Anchura
+    print(f"Dimensiones de la malla física: anchura x={nx}, altura y={ny}")
     
     xi = yi = 0
     xf = yf = 1
     hx = (xf-xi)/(nx-1)
     hy = (yf-yi)/(ny-1)
 
-    coef_centro = -2/hx**2 - 2/hy**2 
     vecino_x = 1/hx**2
     vecino_y = 1/hy**2
 
     # --- PASO 1: CREAR EL MAPA DE ÍNDICES ---
     # Una matriz del mismo tamaño que la malla, llena de -1
-    mapa_indices = np.full((nx, ny), -1, dtype=int)
+    mapa_indices = np.full((ny, nx), -1, dtype=int)
     num_incog = 0
     
-    # Asignamos un número de incógnita (0, 1, 2...) solo donde la máscara es True
-    for i in range(nx):
-        for j in range(ny):
+    # Recorremos por filas (i -> y) y luego columnas (j -> x)
+    for i in range(ny):
+        for j in range(nx):
             if mascara[i, j]:
                 mapa_indices[i, j] = num_incog
                 num_incog += 1
@@ -30,60 +35,64 @@ def finite_difference(mascara):
         raise ValueError("La máscara está vacía (todo False).")
 
     # --- PASO 2: CONSTRUIR LA MATRIZ L ---
-    # Usaremos listas para guardar la fila, la columna y el valor de cada elemento
     rows = []
     cols = []
     data = []
 
-    for i in range(nx):
-        for j in range(ny):
+    for i in range(ny):
+        for j in range(nx):
             if not mascara[i, j]:
-                continue # Si es False, lo ignoramos por completo
-                
-            k_centro = mapa_indices[i, j] # El índice 1D de nuestro punto actual
+                continue
+                    
+            k_centro = mapa_indices[i, j]
+            coef_diag = 0.0  
 
-            # 1. Añadimos la diagonal principal
+            # Vecino izquierda (eje x, cambiamos j-1)
+            if j > 0 and mascara[i, j-1]:
+                k = mapa_indices[i, j-1]
+                rows.append(k_centro)
+                cols.append(k)
+                data.append(vecino_x)
+                coef_diag -= vecino_x
+
+            # Vecino derecha (eje x, cambiamos j+1)
+            if j < nx - 1 and mascara[i, j+1]:
+                k = mapa_indices[i, j+1]
+                rows.append(k_centro)
+                cols.append(k)
+                data.append(vecino_x)
+                coef_diag -= vecino_x
+
+            # Vecino arriba (eje y, cambiamos i-1)
+            if i > 0 and mascara[i-1, j]:
+                k = mapa_indices[i-1, j]
+                rows.append(k_centro)
+                cols.append(k)
+                data.append(vecino_y)
+                coef_diag -= vecino_y
+
+            # Vecino abajo (eje y, cambiamos i+1)
+            if i < ny - 1 and mascara[i+1, j]:
+                k = mapa_indices[i+1, j]
+                rows.append(k_centro)
+                cols.append(k)
+                data.append(vecino_y)
+                coef_diag -= vecino_y
+
+            # Diagonal
             rows.append(k_centro)
             cols.append(k_centro)
-            data.append(coef_centro)
+            data.append(coef_diag)
 
-            # 2. Comprobamos el vecino izquierdo (i-1)
-            if i > 0 and mascara[i-1, j]:
-                k_izq = mapa_indices[i-1, j]
-                rows.append(k_centro)
-                cols.append(k_izq)
-                data.append(vecino_x)
-
-            # 3. Comprobamos el vecino derecho (i+1)
-            if i < nx - 1 and mascara[i+1, j]:
-                k_der = mapa_indices[i+1, j]
-                rows.append(k_centro)
-                cols.append(k_der)
-                data.append(vecino_x)
-
-            # 4. Comprobamos el vecino de abajo (j-1)
-            if j > 0 and mascara[i, j-1]:
-                k_aba = mapa_indices[i, j-1]
-                rows.append(k_centro)
-                cols.append(k_aba)
-                data.append(vecino_y)
-
-            # 5. Comprobamos el vecino de arriba (j+1)
-            if j < ny - 1 and mascara[i, j+1]:
-                k_arr = mapa_indices[i, j+1]
-                rows.append(k_centro)
-                cols.append(k_arr)
-                data.append(vecino_y)
-
-    # Creamos la matriz dispersa a partir de las coordenadas
+    # Creamos la matriz dispersa
     L = sp.coo_matrix((data, (rows, cols)), shape=(num_incog, num_incog)).tocsr()
     print(f"Forma de la matriz L resultante: {L.shape}")
-    
+    print("Simetría:", np.allclose(L.toarray(), L.toarray().T))
     return L
 
-def encontrar_autovalores(MDF, eig): #MDF es la matrizz de difs finitas que se calcula en la funcion anterior, eig el número de autovalores que queremos encontrar
+def encontrar_autovalores(MDF, eig): 
     valores_propios, vectores_propios = spla.eigsh(MDF, k=eig, which='SM')
-    #los valores propios que se sacan arriba son en realidad k**2, los convertimos 
-
-    eigenvalues = np.sqrt(-valores_propios)
+    
+    # AÑADIDO: np.abs para evitar el RuntimeWarning (raíz de números negativos por precisión)
+    eigenvalues = np.sqrt(np.abs(valores_propios))
     return eigenvalues
