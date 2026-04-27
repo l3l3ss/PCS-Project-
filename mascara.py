@@ -4,23 +4,23 @@ from matplotlib.colors import ListedColormap
 
 def crear_mascara(x, y, formato):
     """
-    Crea un array 2D de dimensiones (y, x) que funciona como máscara.
+    Crea un array 2D de dimensiones (x, y) que funciona como máscara.
     
     Parámetros:
-    x (int): Ancho de la máscara (número de columnas).
-    y (int): Alto de la máscara (número de filas).
+    x (int): Longitud de la máscara (dimensión x).
+    y (int): Altura de la máscara (dimensión y).
     formato (str): 'r' para rectángulo, 'c' para circular/estadio.
     
     Retorna:
     np.ndarray: Array de booleanos que representa la máscara.
     """
     if formato == 'r':
-        return np.ones((y, x), dtype=bool)
+        return np.ones((x, y), dtype=bool)
     elif formato == 'c':
         radio = y / 2.0
         
         # Generar una grilla de coordenadas
-        Y, X = np.ogrid[:y, :x]
+        X, Y = np.ogrid[:x, :y]
         
         # Para que quede centrado en los índices del array, usamos (dim - 1) / 2
         cy = (y - 1) / 2.0
@@ -62,12 +62,12 @@ def probar_mascaras(x=100, y=50):
     
     fig, axs = plt.subplots(1, 2, figsize=(12, 5))
     
-    # Mostrar máscara rectangular
-    axs[0].imshow(mascara_r, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
+    # Mostrar máscara rectangular (transponemos para que x sea horizontal e y vertical)
+    axs[0].imshow(mascara_r.T, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
     axs[0].set_title(f"Máscara Rectangular ('r') - {x}x{y}")
     
-    # Mostrar máscara estadio
-    axs[1].imshow(mascara_c, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
+    # Mostrar máscara estadio (transponemos para que x sea horizontal e y vertical)
+    axs[1].imshow(mascara_c.T, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
     axs[1].set_title(f"Máscara Estadio ('c') - {x}x{y}")
     
     plt.tight_layout()
