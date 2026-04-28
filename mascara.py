@@ -35,8 +35,26 @@ def crear_mascara(nx, ny, formato, frontera=True):
         mascara_rect = (X >= cx1) & (X <= cx2)
         
         mascara = mascara_izq | mascara_der | mascara_rect
+    elif formato == 'qc':
+        # Cuarto de estadio (cuadrante)
+        # El radio es igual a la altura de la malla - 1
+        radio = ny - 1.0
+        if radio < 0: radio = 0
+        
+        Y, X = np.ogrid[:ny, :nx]
+        
+        # Centro en y=0, y en x dejamos espacio para el rectángulo
+        cy = 0.0
+        cx = (nx - 1) - radio
+        
+        dist = (X - cx)**2 + (Y - cy)**2
+        
+        mascara_circ = dist <= radio**2
+        mascara_rect = X <= cx
+        
+        mascara = mascara_circ | mascara_rect
     else:
-        raise ValueError("Formato inválido. Usa 'r' o 'c'.")
+        raise ValueError("Formato inválido. Usa 'r', 'c' o 'qc'.")
     
     if frontera:
         mascara[0, :] = False
@@ -55,11 +73,12 @@ def probar_mascaras(x=100, y=50):
     """
     mascara_r = crear_mascara(x, y, 'r')
     mascara_c = crear_mascara(x, y, 'c')
+    mascara_qc = crear_mascara(x, y, 'qc')
     
     # Crear mapa de colores: 0/False = rojo, 1/True = azul
     cmap_personalizado = ListedColormap(['red', 'blue'])
     
-    fig, axs = plt.subplots(1, 2, figsize=(12, 5))
+    fig, axs = plt.subplots(1, 3, figsize=(18, 5))
     
     # Mostrar máscara rectangular (transponemos para que x sea horizontal e y vertical)
     axs[0].imshow(mascara_r, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
@@ -68,6 +87,10 @@ def probar_mascaras(x=100, y=50):
     # Mostrar máscara estadio (transponemos para que x sea horizontal e y vertical)
     axs[1].imshow(mascara_c, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
     axs[1].set_title(f"Máscara Estadio ('c') - {x}x{y}")
+    
+    # Mostrar máscara cuarto de estadio
+    axs[2].imshow(mascara_qc, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
+    axs[2].set_title(f"Máscara Cuarto Estadio ('qc') - {x}x{y}")
     
     plt.tight_layout()
     plt.show()

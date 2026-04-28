@@ -91,7 +91,8 @@ def finite_difference(mascara):
     return L
 
 def encontrar_autovalores(MDF, eig): 
-    valores_propios, vectores_propios = spla.eigsh(MDF, k=eig, which='SM')
+    #valores_propios, vectores_propios = spla.eigsh(MDF, k=eig, which='SM')
+    valores_propios, vectores_propios = spla.eigsh(MDF, k=eig, sigma=0.01)
     
     # AÑADIDO: np.abs para evitar el RuntimeWarning (raíz de números negativos por precisión)
     eigenvalues = np.sqrt(np.abs(valores_propios))

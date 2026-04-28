@@ -3,7 +3,7 @@ import numpy as np
 import mascara as masc
 import integ_method as integ
 
-def plot_distribucion_espaciado(espaciados, bins=30, title="Distribución de espaciado entre autovalores"):
+def plot_distribucion_espaciado(espaciados, bins=100, title="Distribución de espaciado entre autovalores"):
     """
     Visualiza la distribución del espaciado entre autovalores usando un histograma.
     También superpone las distribuciones teóricas de Poisson (sistemas integrables) 
@@ -54,7 +54,7 @@ if __name__ == "__main__":
     # Ejemplo de uso (puedes reemplazar esto con tus datos reales)
     # autovalores = np.loadtxt("autovalores.txt") # O cargar desde tu cálculo
     
-    mascara = masc.crear_mascara(100, 50, formato='c')
+    mascara = masc.crear_mascara(100, 50, formato='qc')
     matrizA = integ.finite_difference(mascara)
     autovalores = integ.encontrar_autovalores(matrizA, 500)
     espaciados = np.diff(autovalores)
