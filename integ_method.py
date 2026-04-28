@@ -96,3 +96,6 @@ def encontrar_autovalores(MDF, eig):
     # AÑADIDO: np.abs para evitar el RuntimeWarning (raíz de números negativos por precisión)
     eigenvalues = np.sqrt(np.abs(valores_propios))
     return eigenvalues
+
+def espaciado(autovalores):
+    return np.diff(autovalores)

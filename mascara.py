@@ -62,11 +62,11 @@ def probar_mascaras(x=100, y=50):
     fig, axs = plt.subplots(1, 2, figsize=(12, 5))
     
     # Mostrar máscara rectangular (transponemos para que x sea horizontal e y vertical)
-    axs[0].imshow(mascara_r.T, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
+    axs[0].imshow(mascara_r, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
     axs[0].set_title(f"Máscara Rectangular ('r') - {x}x{y}")
     
     # Mostrar máscara estadio (transponemos para que x sea horizontal e y vertical)
-    axs[1].imshow(mascara_c.T, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
+    axs[1].imshow(mascara_c, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
     axs[1].set_title(f"Máscara Estadio ('c') - {x}x{y}")
     
     plt.tight_layout()
