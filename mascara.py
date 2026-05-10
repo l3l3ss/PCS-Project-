@@ -96,4 +96,4 @@ def probar_mascaras(x=100, y=50):
     plt.show()
 
 if __name__ == '__main__':
-    probar_mascaras(60, 50)
+    probar_mascaras(200, 100)

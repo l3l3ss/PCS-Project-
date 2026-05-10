@@ -87,7 +87,9 @@ def finite_difference(mascara):
     # Creamos la matriz dispersa
     L = sp.coo_matrix((data, (rows, cols)), shape=(num_incog, num_incog)).tocsr()
     print(f"Forma de la matriz L resultante: {L.shape}")
-    print("Simetría:", np.allclose(L.toarray(), L.toarray().T))
+    # Comprobación de simetría eficiente en memoria (sin usar .toarray())
+    es_simetrica = (L != L.T).nnz == 0
+    print("Simetría:", es_simetrica)
     return L
 
 def encontrar_autovalores(MDF, eig): 
