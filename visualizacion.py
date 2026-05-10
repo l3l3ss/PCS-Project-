@@ -25,8 +25,7 @@ def plot_distribucion_espaciado(espaciados, formato=None, bins=100):
         print("Advertencia: El espaciado medio es 0.")
         s = espaciados
     else:
-        s = espaciados / mean_espaciado
-    
+        s = espaciados / mean_espaciado     
     # Histograma de los datos numéricos
     plt.hist(s, bins=bins, density=True, alpha=0.7, color='royalblue', edgecolor='black', label='Espaciado numérico')
     
@@ -55,7 +54,7 @@ def plot_distribucion_espaciado(espaciados, formato=None, bins=100):
     plt.legend(fontsize=11)
     plt.grid(True, linestyle='--', alpha=0.6)
     plt.tight_layout()
-    #plt.savefig(f"output/distribucion_espaciado_{formato_elegido}.png")
+    #plt.savefig(f"output/distribucion_espaciado_{formato_elegido}_nNormalizar.png")
     plt.show()
     plt.close()
 
@@ -64,12 +63,12 @@ if __name__ == "__main__":
     # Ejemplo de uso (puedes reemplazar esto con tus datos reales)
     # autovalores = np.loadtxt("autovalores.txt") # O cargar desde tu cálculo
 
-    formatos = ['c']
+    formatos = ['r', 'c', 'qc']
 
     for formato_elegido in formatos:
         mascara = masc.crear_mascara(200, 100, formato=formato_elegido)
-        matrizA = bem.boundary_element_method(mascara)
-        autovalores = bem.encontrar_autovalores(matrizA, 1000)
+        matrizA = integ.finite_difference(mascara)
+        autovalores = integ.encontrar_autovalores(matrizA, 1000)
         espaciados = np.diff(autovalores)
 
         plot_distribucion_espaciado(espaciados, formato=formato_elegido)
