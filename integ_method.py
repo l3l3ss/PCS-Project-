@@ -1,5 +1,7 @@
 import numpy as np
 import scipy.sparse as sp
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 import scipy.sparse.linalg as spla
 
 def finite_difference(mascara):
@@ -98,7 +100,43 @@ def encontrar_autovalores(MDF, eig):
     
     # AÑADIDO: np.abs para evitar el RuntimeWarning (raíz de números negativos por precisión)
     eigenvalues = np.sqrt(np.abs(valores_propios))
-    return eigenvalues
+    return eigenvalues, vectores_propios
 
 def espaciado(autovalores):
     return np.diff(autovalores)
+
+def plot_densidad_probabilidad(autovectores, mascara, indice):
+    """Grafica un autovector elegido por índice en dos vistas: imshow y superficie 3D."""
+    psi = autovectores[:, indice]
+    prob = np.abs(psi)**2
+    total_prob = np.sum(prob)
+    print(f"Probabilidad total (suma de |psi|^2): {total_prob:.4f}")
+    grid = np.zeros_like(mascara, dtype=float)
+    grid[mascara] = prob
+    if indice < 0: 
+        index = len(autovectores[0]) + indice
+    else:
+        index = indice
+
+    X, Y = np.meshgrid(np.arange(mascara.shape[1]), np.arange(mascara.shape[0]))
+
+    fig = plt.figure(figsize=(16, 6))
+    ax1 = fig.add_subplot(121)
+    ax2 = fig.add_subplot(122, projection='3d')
+
+    im = ax1.imshow(grid, cmap='viridis', origin='lower')
+    ax1.set_title(f'Densidad de probabilidad (mapa de color) - autovector {index}')
+    ax1.set_xlabel('x')
+    ax1.set_ylabel('y')
+    fig.colorbar(im, ax=ax1, fraction=0.046, pad=0.04, label=r'$|\psi(x,y)|^2$')
+
+    surf = ax2.plot_surface(X, Y, grid, cmap='viridis', edgecolor='none')
+    ax2.set_title(f'Densidad de probabilidad 3D - autovector {index}')
+    ax2.set_xlabel('x')
+    ax2.set_ylabel('y', fontsize =10)
+    ax2.set_zlabel(r'$|\psi(x,y)|^2$')
+    ax2.view_init(elev=30, azim=-60)
+    #fig.colorbar(surf, ax=ax2, fraction=0.046, pad=0.04, label=r'$|\psi(x,y)|^2$')
+
+    plt.tight_layout()
+    plt.show()
