@@ -82,7 +82,7 @@ if __name__ == "__main__":
     for formato_elegido in formatos:
         mascara = masc.crear_mascara(125, 100, formato=formato_elegido)
         matrizA = integ.finite_difference(mascara)
-        autovalores = integ.encontrar_autovalores(matrizA, 1000)
+        autovalores = integ.encontrar_autovalores(matrizA, 400)
         espaciados = np.diff(autovalores)
 
-        plot_distribucion_espaciado(espaciados, mascara, formato=formato_elegido, bins=200)
+        plot_distribucion_espaciado(espaciados, mascara, formato=formato_elegido, bins=100)
