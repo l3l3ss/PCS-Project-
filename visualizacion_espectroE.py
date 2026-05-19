@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import mascara as masc
 import integ_method as integ
-import bem_method as bem
 
 def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
     """
@@ -13,7 +12,7 @@ def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
     Parámetros:
     - espaciados: array o lista con las diferencias entre autovalores consecutivos.
     - mascara: matriz booleana que representa la forma del billar.
-    - formato: 'r' (rectangular), 'c' (estadio) para Poisson, o 'qc' (cuarto de estadio) para Wigner.
+    - formato: 'r' (rectangular) para Poisson,'c' (estadio) para Wigner
     - bins: número de contenedores para el histograma.
     """
     from matplotlib.colors import ListedColormap
@@ -30,7 +29,7 @@ def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
     ax1.set_ylabel('Y')
     
     # 2. Plot de la distribución en la derecha
-    # Normalizamos el espaciado dividiendo por la media (práctica estándar en caos cuántico)
+    # Normalizamos el espaciado dividiendo por la media 
     # para que s = S / <S>
     mean_espaciado = np.mean(espaciados)
     if mean_espaciado == 0:
@@ -45,16 +44,16 @@ def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
     # Rango de s para graficar las distribuciones teóricas
     s_vals = np.linspace(0, np.max(s) + 0.5, 200)
     
-    # Distribución de Poisson (sistemas regulares / integrables)
+    # Distribución de Poisson 
     poisson = np.exp(-s_vals)
     
-    # Distribución de Wigner (GOE, sistemas caóticos con simetría de inversión temporal)
+    # Distribución de Wigner 
     wigner = (np.pi / 2) * s_vals * np.exp(-np.pi * s_vals**2 / 4)
     
     # Trazar curvas teóricas dependiendo del formato
-    if formato in ['r', 'c']:
+    if formato == 'r':
         ax2.plot(s_vals, poisson, 'r--', linewidth=2, label='Poisson (Integrable / Simetrías)')
-    elif formato == 'qc':
+    elif formato in ['c', 'qc']:
         ax2.plot(s_vals, wigner, 'g-', linewidth=2, label='Wigner GOE (Caótico)')
     else:
         # Si no se especifica o es otro formato, graficamos ambas
@@ -74,15 +73,13 @@ def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
 
 
 if __name__ == "__main__":
-    # Ejemplo de uso (puedes reemplazar esto con tus datos reales)
-    # autovalores = np.loadtxt("autovalores.txt") # O cargar desde tu cálculo
 
-    formatos = ['c']
+    formatos = ['r']
 
     for formato_elegido in formatos:
-        mascara = masc.crear_mascara(125, 100, formato=formato_elegido)
+        mascara = masc.crear_mascara(170, 100, formato=formato_elegido)
         matrizA = integ.finite_difference(mascara)
-        autovalores = integ.encontrar_autovalores(matrizA, 400)
+        autovalores, autovectores = integ.encontrar_autovalores(matrizA, 1000)
         espaciados = np.diff(autovalores)
 
         plot_distribucion_espaciado(espaciados, mascara, formato=formato_elegido, bins=100)
