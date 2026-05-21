@@ -1,3 +1,114 @@
 % !TeX root = ../main.tex
 
 \section{Results}
+
+\subsection{Statistichal analysis of spacing distribution}
+
+First,we calculate the first 10000 eigenvalues of each system by diagonalizing the sparse matrix that we obtained applying the DFM \ref{eq:sparse_matrix}. Then, with those arrays, we compute a new one that has the spacing distribution between consecutive eigenvalues, this is $s = E_{i+1} - E_i$. Finally, we plot an histogram with those, as it follows:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/170x100_distr_r.png}
+    \caption{Poisson distribution for the integrable rectangle.}
+    \label{fig:poisson_distribution}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/170x100_distr_c.png}
+    \caption{Poisson distribution for the non-integrable complete stadium.}    
+    \label{fig:poisson_distribution_stadium}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img/170x100_distr_qc.png}
+    \caption{Wigner-Dyson distribution for a quarter of the non-integrable stadium.}    
+    \label{fig:wigner_dyson_distribution}
+\end{figure}
+
+As expected, we can clearly see in \autoref{fig:poisson_distribution} that the spacing distribution for the integrable rectangle follows a Poisson distribution. This graphic shows how this systems, even if it is integrable, that their eigenvalues are not correlated, then the probability of finding two eigenvalues close to each other is high ($P(s) \rightarrow 1$ when $s \rightarrow 0$). 
+Also, in the case of the non-integrable billiad (the complete stadium showed in  \autoref{fig:poisson_distribution_stadium}), we can see that it also follows a near Poisson distribution, due to the symmetries of the system. This symmetries make the systm to have four pairs of solutions, then, the degenerate levels will increase the probability of finding two eigenvalues close to each other, even if the system is non-integrable.\\
+
+
+On the other hand, if we eliminate the $x-axis$ and $y-axis$ simmetries, having just a quarter of the stadium as we see in \autoref{fig:wigner_dyson_distribution}, it is noticeable that the spacing distribution for the non-integrable billiard follows a Wigner-Dyson distribution. In this case, the opposite happens: the system may seem chaotic, but its eigenvalues are correlated, in a way that makes them repel each other or, in other words, the probability of finding two near-degenerate eigenvalues is very low ($P(s) \rightarrow 0$ when $s \rightarrow 0$).
+
+
+\subsection{High-energy states visualization}
+
+To determine the chaocity of the system, we must look at high-energy states, and compare them to the non-chaotic system. This is due to the fact that, in the low-energy states, the eigenvectors may seem like those of a string, therrefore, they don't contain the necessary information to see if the system is chaotic or not. We then plot the probability density of some of the high-energy states for both systems. 
+
+\begin{figure}[!ht]
+    \centering
+    % Primera imagen
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/dens_prob_r_975.png}
+        \caption{Probability density for the eigenvalue 975.}
+        \label{fig:rectangle_975}
+    \end{subfigure}
+    
+    \vspace{1em} % Espacio vertical entre imágenes
+    
+    % Segunda imagen
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/dens_prob_r_985.png}
+        \caption{Probability density for the eigenvalue 985.}
+        \label{fig:rectangle_985}
+    \end{subfigure}
+    
+    \vspace{1em} % Espacio vertical entre imágenes
+    
+    % Tercera imagen
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/dens_prob_r_995.png}
+        \caption{Probability density for the eigenvalue 995.}
+        \label{fig:rectangle_995}
+    \end{subfigure}
+    
+    \caption{Visualization of various of the high-energy states for the \textbf{integrable rectangle}. The probability density is represented in a color scale, where the red areas correspond to higher probability density and the blue areas correspond to lower probability density.}
+    \label{fig:dens_prob_r}
+\end{figure}
+
+
+
+\begin{figure}[!ht]
+    \centering
+    % Primera imagen
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/dens_prob_qc_975.png}
+        \caption{Probability density for the eigenvalue 975.}
+        \label{fig:rectangle_975}
+    \end{subfigure}
+    
+    \vspace{1em} % Espacio vertical entre imágenes
+    
+    % Segunda imagen
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/dens_prob_qc_985.png}
+        \caption{Probability density for the eigenvalue 985.}
+        \label{fig:rectangle_985}
+    \end{subfigure}
+    
+    \vspace{1em} % Espacio vertical entre imágenes
+    
+    % Tercera imagen
+    \begin{subfigure}[b]{0.8\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/dens_prob_qc_995.png}
+        \caption{Probability density for the eigenvalue 995.}
+        \label{fig:rectangle_995}
+    \end{subfigure}
+    
+    \caption{Visualization of various of the high-energy states for the \textbf{non-integrable quarter billiard}. The probability density is represented in a color scale, where the red areas correspond to higher probability density and the blue areas correspond to lower probability density.}
+    \label{fig:dens_prob_qc}
+\end{figure}
+
+
+The three graphics of \autoref{fig:dens_prob_r} show the probability density for three of the high-energy states of the integrable rectangle.We see that the patterns are very regular, and they look like the fundaental modes of a string, with nodes and antinodes. We can determine then that this system is not chaotic, as expected, since there are periodic patterns in the probability density.
+
+In contrast, the same eigenvalues are shown in \autoref{fig:dens_prob_qc}. Is important to note that we only represented a quarter of stadium, because is the significant case in our study. In this system, the probability density shows 'quantum scars' or trajectories, wich corresponds to classical periodic orbits that a particle would follow within the stadium. Instead of a uniform distribution, these scars represent a quantum localization along specific geometric paths. 
+

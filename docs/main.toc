@@ -3,6 +3,8 @@
 \contentsline {section}{\numberline {2}Methods}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Discretisation of the system: Mascara Method}{4}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Finite Difference Method}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Results}{4}{section.3}%
-\contentsline {section}{\numberline {4}Conclusions}{4}{section.4}%
-\contentsline {section}{Referencias}{4}{section.4}%
+\contentsline {section}{\numberline {3}Results}{5}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Statistichal analysis of spacing distribution}{5}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}High-energy states visualization}{7}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Conclusions}{7}{section.4}%
+\contentsline {section}{Referencias}{7}{section.4}%

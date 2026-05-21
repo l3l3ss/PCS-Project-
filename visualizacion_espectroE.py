@@ -51,9 +51,9 @@ def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
     wigner = (np.pi / 2) * s_vals * np.exp(-np.pi * s_vals**2 / 4)
     
     # Trazar curvas teóricas dependiendo del formato
-    if formato == 'r':
+    if formato in ['r', 'c']:
         ax2.plot(s_vals, poisson, 'r--', linewidth=2, label='Poisson (Integrable / Simetrías)')
-    elif formato in ['c', 'qc']:
+    elif formato =='qc':
         ax2.plot(s_vals, wigner, 'g-', linewidth=2, label='Wigner GOE (Caótico)')
     else:
         # Si no se especifica o es otro formato, graficamos ambas
@@ -74,7 +74,7 @@ def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
 
 if __name__ == "__main__":
 
-    formatos = ['r']
+    formatos = ['c']
 
     for formato_elegido in formatos:
         mascara = masc.crear_mascara(170, 100, formato=formato_elegido)

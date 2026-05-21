@@ -22,4 +22,47 @@ Once we have a grid of the system, where $x_i = i \Delta x$ and $y_j = j \Delta 
     \label{eq:Hamiltonian_2D}
 \end{equation}
 
-Since in our systems we have a free particle, the potential $V(x,y)$ is zero everywhere inside the billiard and infinite outside. 
+Since in our systems we have a free particle, the potential $V(x,y)$ is zero everywhere inside the billiard and infinite outside. With this consideration, the Schrödinger equation can be rewritten as the Helmholtz equation:
+\begin{equation}
+    \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + k^2 \right) \psi(x,y) = 0
+    \label{eq:Helmholtz_equation}
+\end{equation}
+
+where $k^2 = E$ (using units such that $\hbar^2/2m = 1$).
+
+Now, we can discretize the second derivatives using finite differences. If we consider one of the dimensions, for example the $x$-direction, we can approximate the wave function in the nearest points with a Taylor expansion:
+\begin{equation}
+    \psi(x_i \pm \Delta x) = \psi(x_i) \pm \Delta x \psi'(x_i) + \frac{\Delta x^2}{2} \psi''(x_i) \pm O(\Delta x^3)
+\end{equation}
+Same in the $y$-direction. If we sum the two equations and subtract them, we can get an expression for the second derivative:
+
+\begin{equation}
+    \psi''(x_i) = \frac{\psi(x_i + \Delta x) - 2\psi(x_i) + \psi(x_i - \Delta x)}{\Delta x^2} + O(\Delta x^2) \approx \frac{\psi_{i+1} - 2\psi_i + \psi_{i-1}}{\Delta x^2}
+    \label{eq:aprox_2derivada_diffinita}
+\end{equation}
+
+Taking this in consideration, and applying the same procedure for the $y$-direction, we'll apply the Helmholtz equation in its discretized form \ref{eq:discretized_Helmholtz} to the point $(x_i, y_j)$ of the grid. 
+
+\begin{equation}
+    \left( \frac{\psi_{i+1,j} - 2\psi_{i,j} + \psi_{i-1,j}}{\Delta x^2} + \frac{\psi_{i,j+1} - 2\psi_{i,j} + \psi_{i,j-1}}{\Delta y^2} + k^2 \psi_{i,j} \right) = 0
+    \label{eq:discretized_Helmholtz}
+\end{equation}
+
+Is more efficient to write the resulting equation in a matrix form, where the matrix $H$ is given by:
+
+\begin{equation}
+H' = 
+\begin{pmatrix}
+D      & \frac{1}{\Delta x^2} & 0      & \dots  & \frac{1}{\Delta y^2} & 0      & \dots \\
+\frac{1}{\Delta x^2} & D      & \frac{1}{\Delta x^2} & 0      & \dots  & \frac{1}{\Delta y^2} & \dots \\
+0      & \frac{1}{\Delta x^2} & D      & \frac{1}{\Delta x^2} & 0      & \dots  & \dots \\
+\vdots & 0      & \ddots & \ddots & \ddots & 0      & \vdots \\
+\frac{1}{\Delta y^2} & \vdots & 0      & \frac{1}{\Delta x^2} & D      & \frac{1}{\Delta x^2} & 0 \\
+0      & \frac{1}{\Delta y^2} & \vdots & \dots  & \frac{1}{\Delta x^2} & D      & \frac{1}{\Delta x^2} \\
+\vdots & \dots  & \dots  & \dots  & 0      & \frac{1}{\Delta x^2} & D      
+\end{pmatrix}
+\label{eq:sparse_matrix}
+\end{equation}
+
+This matrix is called the finite difference matrix (FDM) and it is a sparse matrix, since most of its elements are zero. It has a total of $n_x \times n_y$ elements. The diagonal elements are given by $D = k^2 -\left( \frac{2}{\Delta x^2} + \frac{2}{\Delta y^2} \right)$. The second diagonal elements are going by $\frac{1}{\Delta x^2}$ and it corresponds to the coupling between the nearest points in the $x$-direction. The elements that are $n_x$ positions away from the diagonal are given by $\frac{1}{\Delta y^2}$ and it corresponds to the coupling between the nearest points in the $y$-direction.
+
