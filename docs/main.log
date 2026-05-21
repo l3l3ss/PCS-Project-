@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.24)  19 MAY 2026 11:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.10)  21 MAY 2026 10:41
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/marianngeles/universidad/sist_complejos/PCS-Project-/docs/main.tex
-(/home/marianngeles/universidad/sist_complejos/PCS-Project-/docs/main.tex
+**/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex
+(/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -387,7 +387,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count304
 \U@D=\dimen256
-\l@unhyphenated=\language86
+\l@unhyphenated=\language85
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count305
@@ -613,7 +613,12 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[3]) (./content/03_Results.tex) (./content/04_Conclusions.tex) (./main.bbl
+[3])
+Overfull \hbox (0.8794pt too wide) in paragraph at lines 25--140
+[]\T1/ppl/m/n/12 Since in our sys-tems we ha-ve a free par-ti-cle, the po-ten-tial $\OML/zplm/m/it/12 V\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 x\OT1/ppl/m/n/12 , \OML/zplm/m/it/12 y\OT1/zplm/m/n/12 )$ \T1/ppl/m/n/12 is ze-ro everywhe-
+ []
+
+(./content/03_Results.tex) (./content/04_Conclusions.tex) (./main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
@@ -636,15 +641,15 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 0F98098B6AA7EFA6D5DD13F53C268C93;930.
  ) 
 Here is how much of TeX's memory you used:
- 13632 strings out of 476034
- 212887 string characters out of 5792864
+ 13632 strings out of 476041
+ 212938 string characters out of 5793174
  1859388 words of memory out of 6000000
- 33782 multiletter control sequences out of 15000+600000
+ 33781 multiletter control sequences out of 15000+600000
  547367 words of font info for 120 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 63i,12n,67p,578b,471s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 63i,12n,67p,595b,471s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (4 pages, 214974 bytes).
+Output written on main.pdf (4 pages, 215115 bytes).
 PDF statistics:
  114 PDF objects out of 1000 (max. 8388607)
  89 compressed objects within 1 object stream
