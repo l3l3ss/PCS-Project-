@@ -82,18 +82,18 @@ def probar_mascaras(x=100, y=50):
     
     # Mostrar máscara rectangular (transponemos para que x sea horizontal e y vertical)
     axs[0].imshow(mascara_r, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
-    axs[0].set_title(f"Máscara Rectangular ('r') - {x}x{y}")
+    axs[0].set_title(f"Rectangular Mask ('r') - {x}x{y}")
     
     # Mostrar máscara estadio (transponemos para que x sea horizontal e y vertical)
     axs[1].imshow(mascara_c, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
-    axs[1].set_title(f"Máscara Estadio ('c') - {x}x{y}")
+    axs[1].set_title(f"Stadium mask ('c') - {x}x{y}")
     
     # Mostrar máscara cuarto de estadio
     axs[2].imshow(mascara_qc, cmap=cmap_personalizado, origin='lower', vmin=0, vmax=1)
-    axs[2].set_title(f"Máscara Cuarto Estadio ('qc') - {x}x{y}")
+    axs[2].set_title(f"Stadium quarter mask ('qc') - {x}x{y}")
     
     plt.tight_layout()
     plt.show()
 
 if __name__ == '__main__':
-    probar_mascaras(125, 100)
+    probar_mascaras(170, 100)

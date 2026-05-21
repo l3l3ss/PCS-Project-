@@ -12,6 +12,16 @@ To be able to solve the Schrödinger's Equation $H\psi = E\psi$, we'll first nee
 All the methods used in this project are implemented in Python, and the code is available in the GitHub repository \href{https://github.com/l3l3ss/PCS-Project-}. To explain the followed procedure, we'll first introduce the Mascara method, which is used to discretize the system, and then the Finite Difference Method, which is used to solve the resulting eigenvalue problem.
 
 \subsection{Discretisation of the system: Mascara Method}
+To easily create different geometries, we decided to implement a finite difference method that takes different masks and computes the corresponding eigenvalues. The mask represents a grid containing the geometry of the problem. For each pixel, we determine whether it belongs to the geometry by assigning it a true or false value.
+
+To do this project we create three differents mask. A rectangular mask, a stadium form mask, and a quarter of a stadium mask. The next figure represents this masks:
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=1.0\textwidth]{img/mascaras.png}
+  \caption{Descripción de la figura.}
+  \label{fig:mi_figura}
+\end{figure}
 
 
 \subsection{Finite Difference Method}

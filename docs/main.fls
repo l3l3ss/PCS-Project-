@@ -980,6 +980,11 @@ INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+INPUT ./img/mascaras.png
+INPUT ./img/mascaras.png
+INPUT img/mascaras.png
+INPUT ./img/mascaras.png
+INPUT ./img/mascaras.png
 INPUT ./content/03_Results.tex
 INPUT ./content/03_Results.tex
 INPUT ./content/03_Results.tex
