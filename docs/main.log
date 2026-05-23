@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.24)  21 MAY 2026 13:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.10)  23 MAY 2026 12:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/marianngeles/universidad/sist_complejos/PCS-Project-/docs/main.tex
-(/home/marianngeles/universidad/sist_complejos/PCS-Project-/docs/main.tex
+**/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex
+(/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2022/07/02 v1.4n Standard LaTeX document class
@@ -399,7 +399,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 Package: babel 2023/02/13 3.86 The Babel package
 \babel@savecnt=\count305
 \U@D=\dimen262
-\l@unhyphenated=\language86
+\l@unhyphenated=\language85
  (/usr/share/texlive/texmf-dist/tex/generic/babel/txtbabel.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count306
@@ -639,8 +639,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [2] (./content/01_Introduction.tex) (./content/02_Methods.tex
-LaTeX Info: Redefining \. on input line 20.
-LaTeX Info: Redefining \% on input line 20.
+LaTeX Info: Redefining \. on input line 16.
+LaTeX Info: Redefining \% on input line 16.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -650,15 +650,28 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
-Overfull \hbox (0.8794pt too wide) in paragraph at lines 25--26
+<img/mascaras.png, id=76, 1108.6218pt x 361.35pt>
+File: img/mascaras.png Graphic file (type png)
+<use img/mascaras.png>
+Package pdftex.def Info: img/mascaras.png  used on input line 21.
+(pdftex.def)             Requested size: 429.63681pt x 140.03821pt.
+
+Overfull \hbox (0.8794pt too wide) in paragraph at lines 46--47
 []\T1/ppl/m/n/12 Since in our sys-tems we ha-ve a free par-ti-cle, the po-ten-tial $\OML/zplm/m/it/12 V\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 x\OT1/ppl/m/n/12 , \OML/zplm/m/it/12 y\OT1/zplm/m/n/12 )$ \T1/ppl/m/n/12 is ze-ro everywhe-
  []
 
+LaTeX Info: Redefining \. on input line 47.
+LaTeX Info: Redefining \% on input line 47.
 
-Underfull \vbox (badness 3977) has occurred while \output is active []
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
+[4 <./img/mascaras.png>]) (./content/03_Results.tex
+LaTeX Info: Redefining \. on input line 3.
+LaTeX Info: Redefining \% on input line 3.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -667,88 +680,84 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4]) (./content/03_Results.tex
-<img/170x100_distr_r.png, id=88, 1011.78pt x 433.62pt>
+[5]
+<img/170x100_distr_r.png, id=98, 1011.78pt x 433.62pt>
 File: img/170x100_distr_r.png Graphic file (type png)
 <use img/170x100_distr_r.png>
 Package pdftex.def Info: img/170x100_distr_r.png  used on input line 10.
 (pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
-<img/170x100_distr_c.png, id=89, 1011.78pt x 433.62pt>
+<img/170x100_distr_c.png, id=99, 1011.78pt x 433.62pt>
 File: img/170x100_distr_c.png Graphic file (type png)
 <use img/170x100_distr_c.png>
 Package pdftex.def Info: img/170x100_distr_c.png  used on input line 17.
 (pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
-
-Underfull \vbox (badness 1215) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 21.
-LaTeX Info: Redefining \% on input line 21.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[5 <./img/170x100_distr_r.png>]
-<img/170x100_distr_qc.png, id=97, 1011.78pt x 433.62pt>
+<img/170x100_distr_qc.png, id=100, 1011.78pt x 433.62pt>
 File: img/170x100_distr_qc.png Graphic file (type png)
 <use img/170x100_distr_qc.png>
 Package pdftex.def Info: img/170x100_distr_qc.png  used on input line 24.
 (pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
 
+Underfull \vbox (badness 1184) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 28.
+LaTeX Info: Redefining \% on input line 28.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6 <./img/170x100_distr_r.png> <./img/170x100_distr_c.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
-LaTeX Info: Redefining \. on input line 34.
-LaTeX Info: Redefining \% on input line 34.
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[6 <./img/170x100_distr_c.png> <./img/170x100_distr_qc.png>]
-<img/dens_prob_r_975.png, id=109, 1156.32pt x 433.62pt>
+<img/dens_prob_r_975.png, id=112, 1156.32pt x 433.62pt>
 File: img/dens_prob_r_975.png Graphic file (type png)
 <use img/dens_prob_r_975.png>
 Package pdftex.def Info: img/dens_prob_r_975.png  used on input line 45.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_r_985.png, id=110, 1156.32pt x 433.62pt>
+<img/dens_prob_r_985.png, id=113, 1156.32pt x 433.62pt>
 File: img/dens_prob_r_985.png Graphic file (type png)
 <use img/dens_prob_r_985.png>
 Package pdftex.def Info: img/dens_prob_r_985.png  used on input line 55.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_r_995.png, id=111, 1156.32pt x 433.62pt>
+<img/dens_prob_r_995.png, id=114, 1156.32pt x 433.62pt>
 File: img/dens_prob_r_995.png Graphic file (type png)
 <use img/dens_prob_r_995.png>
 Package pdftex.def Info: img/dens_prob_r_995.png  used on input line 65.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_qc_975.png, id=112, 1156.32pt x 433.62pt>
+<img/dens_prob_qc_975.png, id=115, 1156.32pt x 433.62pt>
 File: img/dens_prob_qc_975.png Graphic file (type png)
 <use img/dens_prob_qc_975.png>
 Package pdftex.def Info: img/dens_prob_qc_975.png  used on input line 81.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_qc_985.png, id=113, 1156.32pt x 433.62pt>
+<img/dens_prob_qc_985.png, id=116, 1156.32pt x 433.62pt>
 File: img/dens_prob_qc_985.png Graphic file (type png)
 <use img/dens_prob_qc_985.png>
 Package pdftex.def Info: img/dens_prob_qc_985.png  used on input line 91.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_qc_995.png, id=114, 1156.32pt x 433.62pt>
+<img/dens_prob_qc_995.png, id=117, 1156.32pt x 433.62pt>
 File: img/dens_prob_qc_995.png Graphic file (type png)
 <use img/dens_prob_qc_995.png>
 Package pdftex.def Info: img/dens_prob_qc_995.png  used on input line 101.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-) (./content/04_Conclusions.tex) (./main.bbl
+LaTeX Info: Redefining \. on input line 113.
+LaTeX Info: Redefining \% on input line 113.
 
-LaTeX Warning: Empty `thebibliography' environment on input line 3.
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-)
-LaTeX Info: Redefining \. on input line 156.
-LaTeX Info: Redefining \% on input line 156.
+[7 <./img/170x100_distr_qc.png>]) (./content/04_Conclusions.tex) (./main.bbl
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 7.
+LaTeX Info: Redefining \% on input line 7.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -757,18 +766,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[7]
-LaTeX Info: Redefining \. on input line 156.
-LaTeX Info: Redefining \% on input line 156.
-
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[8 <./img/dens_prob_r_975.png> <./img/dens_prob_r_985.png> <./img/dens_prob_r_995.png>]
+[8 <./img/dens_prob_r_975.png> <./img/dens_prob_r_985.png> <./img/dens_prob_r_995.png>])
 LaTeX Info: Redefining \. on input line 156.
 LaTeX Info: Redefining \% on input line 156.
 
@@ -790,18 +788,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5345E383AA1570D41032CFD6FB25EF85;1447.
  ) 
 Here is how much of TeX's memory you used:
- 15033 strings out of 476034
- 241246 string characters out of 5792864
- 1867388 words of memory out of 6000000
- 35151 multiletter control sequences out of 15000+600000
- 548973 words of font info for 122 fonts, out of 8000000 for 9000
+ 15048 strings out of 476041
+ 241553 string characters out of 5793174
+ 1871388 words of memory out of 6000000
+ 35161 multiletter control sequences out of 15000+600000
+ 549870 words of font info for 123 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 67i,12n,77p,722b,526s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,12n,77p,739b,582s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (9 pages, 1613978 bytes).
+Output written on main.pdf (9 pages, 1645474 bytes).
 PDF statistics:
- 185 PDF objects out of 1000 (max. 8388607)
- 136 compressed objects within 2 object streams
- 34 named destinations out of 1000 (max. 500000)
- 123 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
+ 36 named destinations out of 1000 (max. 500000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 
