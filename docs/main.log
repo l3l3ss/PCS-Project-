@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.10)  21 MAY 2026 11:56
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.10)  23 MAY 2026 12:05
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -619,13 +619,13 @@ File: img/mascaras.png Graphic file (type png)
 <use img/mascaras.png>
 Package pdftex.def Info: img/mascaras.png  used on input line 21.
 (pdftex.def)             Requested size: 429.63681pt x 140.03821pt.
-)
-Overfull \hbox (0.8794pt too wide) in paragraph at lines 45--140
+
+Overfull \hbox (0.8794pt too wide) in paragraph at lines 46--47
 []\T1/ppl/m/n/12 Since in our sys-tems we ha-ve a free par-ti-cle, the po-ten-tial $\OML/zplm/m/it/12 V\OT1/zplm/m/n/12 (\OML/zplm/m/it/12 x\OT1/ppl/m/n/12 , \OML/zplm/m/it/12 y\OT1/zplm/m/n/12 )$ \T1/ppl/m/n/12 is ze-ro everywhe-
  []
 
-LaTeX Info: Redefining \. on input line 140.
-LaTeX Info: Redefining \% on input line 140.
+LaTeX Info: Redefining \. on input line 47.
+LaTeX Info: Redefining \% on input line 47.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.59999pt, for example:
@@ -633,7 +633,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4 <./img/mascaras.png>] (./content/03_Results.tex) (./content/04_Conclusions.tex) (./main.bbl)
+[4 <./img/mascaras.png>]) (./content/03_Results.tex) (./content/04_Conclusions.tex) (./main.bbl)
 LaTeX Info: Redefining \. on input line 156.
 LaTeX Info: Redefining \% on input line 156.
 

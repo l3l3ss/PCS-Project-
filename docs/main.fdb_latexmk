@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex main"] 1779357383.22328 "main.aux" "main.bbl" "main" 1779357385.60957 0
+["bibtex main"] 1779357383.22328 "main.aux" "main.bbl" "main" 1779530710.12718 0
   "./referencias.bib" 1779355013.20671 584 88d420d97c652f29d235e823609967e5 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1775001600 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1779357385.13714 2347 32972e3f3e76700d55cd4c3f96053e68 "pdflatex"
+  "main.aux" 1779530709.98273 2347 32972e3f3e76700d55cd4c3f96053e68 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779357383.39278 "/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex" "main.pdf" "main" 1779357385.60994 0
+["pdflatex"] 1779530709.41419 "/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex" "main.pdf" "main" 1779530710.12735 0
   "/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex" 1778669635.78852 3505 e2869ed7ff79f11a50819f7ffadaad6f ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775001600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -145,19 +145,19 @@
   "/usr/share/texlive/texmf-dist/tex/latex/url/url.sty" 1388531844 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "/usr/share/texlive/texmf-dist/tex/latex/xtab/xtab.sty" 1312313272 20106 cec6cadeaa62ca1707a316e38d65a9eb ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1775001600 40900 887e0dc8cac988a9e9c574af364cf837 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1775811965.95823 4602615 ac1019cb4c4ba39710c2cf7f752b378d ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1775811404 7753793 de9360a086970e0a1fe81d8f8b736103 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1775812161.42409 4602601 5d02a5c5d52d7237566d144856366042 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1775811963 7753793 1f6d0f0b5bc080514da88cddc7037b02 ""
   "content/01_Introduction.tex" 1779352460.70279 1989 60d2d080f6fcc295d34677a34c307533 ""
-  "content/02_Methods.tex" 1779357380.22904 3033 ab85f15e6c93304bd97f48500a185334 ""
+  "content/02_Methods.tex" 1779530709.24914 3036 236776e216944e70da08f9c5e459e9f9 ""
   "content/03_Results.tex" 1778669311.56361 44 eb122fea822045cce20a5d7d23d6fa8b ""
   "content/04_Conclusions.tex" 1778669317.47874 48 e9445f2503bb933e31d63af34b73a41c ""
   "img/escudoUGRmonocromo.png" 1777312038.73985 160809 de7617aa95455ecd794fe6065fc4748a ""
   "img/mascaras.png" 1779355378.87228 34212 1d520e3ae5e195d543bc83869ede3596 ""
-  "main.aux" 1779357385.13714 2347 32972e3f3e76700d55cd4c3f96053e68 "pdflatex"
+  "main.aux" 1779530709.98273 2347 32972e3f3e76700d55cd4c3f96053e68 "pdflatex"
   "main.bbl" 1779357383.38311 281 f265e4f93fa5cd827d03e5a3ac3a0252 "bibtex main"
-  "main.out" 1779357385.14014 930 0f98098b6aa7efa6d5dd13f53c268c93 "pdflatex"
+  "main.out" 1779530709.98373 930 0f98098b6aa7efa6d5dd13f53c268c93 "pdflatex"
   "main.tex" 1778669635.78852 3505 e2869ed7ff79f11a50819f7ffadaad6f ""
-  "main.toc" 1779357385.14114 543 d5ad2edf9d472b6d9bbc81bd2faa034f "pdflatex"
+  "main.toc" 1779530709.98437 543 d5ad2edf9d472b6d9bbc81bd2faa034f "pdflatex"
   (generated)
   "main.aux"
   "main.log"
