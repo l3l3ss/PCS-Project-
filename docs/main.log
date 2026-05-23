@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.10)  23 MAY 2026 12:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.10)  23 MAY 2026 18:00
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -153,7 +153,14 @@ File: upzd.fd 2001/06/04 font definitions for U/pzd.
 LaTeX Font Info:    Trying to load font information for U+psy on input line 64.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd
 File: upsy.fd 2001/06/04 font definitions for U/psy.
-)) (/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
+)) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count273
+\float@exts=\toks26
+\float@box=\box55
+\@float@everytoks=\toks27
+\@floatcapt=\box56
+) (/usr/share/texlive/texmf-dist/tex/latex/base/latexsym.sty
 Package: latexsym 1998/08/17 v2.2e Standard LaTeX package (lasy symbols)
 \symlasy=\mathgroup7
 LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
@@ -162,22 +169,22 @@ LaTeX Font Info:    Overwriting symbol font `lasy' in version `bold'
 Package: soul 2023-02-18 v3.0 Permit use of UTF-8 characters in soul (HO)
  (/usr/share/texlive/texmf-dist/tex/generic/soul/soul-ori.sty
 Package: soul-ori 2023-02-18 v3.0 letterspacing/underlining (mf)
-\SOUL@word=\toks26
-\SOUL@lasttoken=\toks27
-\SOUL@syllable=\toks28
-\SOUL@cmds=\toks29
-\SOUL@buffer=\toks30
-\SOUL@token=\toks31
+\SOUL@word=\toks28
+\SOUL@lasttoken=\toks29
+\SOUL@syllable=\toks30
+\SOUL@cmds=\toks31
+\SOUL@buffer=\toks32
+\SOUL@token=\toks33
 \SOUL@syllgoal=\dimen153
 \SOUL@syllwidth=\dimen154
 \SOUL@charkern=\dimen155
 \SOUL@hyphkern=\dimen156
 \SOUL@dimen=\dimen157
 \SOUL@dimeni=\dimen158
-\SOUL@minus=\count273
-\SOUL@comma=\count274
-\SOUL@apo=\count275
-\SOUL@grave=\count276
+\SOUL@minus=\count274
+\SOUL@comma=\count275
+\SOUL@apo=\count276
+\SOUL@grave=\count277
 \SOUL@spaceskip=\skip57
 \SOUL@ttwidth=\dimen159
 \SOUL@uldp=\dimen160
@@ -191,12 +198,12 @@ Package: iftex 2022/02/03 v1.0f TeX engine tests
 ))) (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
 \col@sep=\dimen162
-\ar@mcellbox=\box55
+\ar@mcellbox=\box57
 \extrarowheight=\dimen163
-\NC@list=\toks32
+\NC@list=\toks34
 \extratabsurround=\skip58
 \backup@length=\skip59
-\ar@cellbox=\box56
+\ar@cellbox=\box58
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
 \epsfxsize=\dimen164
@@ -217,21 +224,15 @@ Package: caption3 2023/03/12 v2.4 caption3 kernel (AR)
 \caption@hangindent=\dimen173
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count277
-\c@continuedfloat=\count278
+\c@caption@flags=\count278
+\c@continuedfloat=\count279
+Package caption Info: float package is loaded.
 Package caption Info: rotating package is loaded.
 )
 Package caption Info: New subtype `subfigure' on input line 239.
-\c@subfigure=\count279
+\c@subfigure=\count280
 Package caption Info: New subtype `subtable' on input line 239.
-\c@subtable=\count280
-) (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count281
-\float@exts=\toks33
-\float@box=\box57
-\@float@everytoks=\toks34
-\@floatcapt=\box58
+\c@subtable=\count281
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
 Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 ) (/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
@@ -442,7 +443,7 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 \Gm@layoutvoffset=\dimen270
 \Gm@dimlist=\toks36
 )
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 64.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 65.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
@@ -460,24 +461,24 @@ LaTeX Info: Redefining \% on input line 22.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 64.
-LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 65.
+LaTeX Font Info:    ... okay on input line 65.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count312
@@ -498,17 +499,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: xtab package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 64.
+Package hyperref Info: Link coloring ON on input line 65.
  (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Info: Redefining \. on input line 64.
-LaTeX Info: Redefining \% on input line 64.
+LaTeX Info: Redefining \. on input line 65.
+LaTeX Info: Redefining \% on input line 65.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -544,61 +544,61 @@ LaTeX Info: Redefining \% on input line 64.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 72.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 73.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 )
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 72.
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 73.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 72.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 73.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 72.
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 73.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 72.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 73.
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 72.
+(Font)              scaled to size 11.40997pt on input line 73.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 72.
+(Font)              scaled to size 8.33606pt on input line 73.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 72.
+(Font)              scaled to size 6.25204pt on input line 73.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 11.40997pt on input line 72.
+(Font)              scaled to size 11.40997pt on input line 73.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 8.33606pt on input line 72.
+(Font)              scaled to size 8.33606pt on input line 73.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 6.25204pt on input line 72.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 72.
+(Font)              scaled to size 6.25204pt on input line 73.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 73.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<img/escudoUGRmonocromo.png, id=39, 647.17786pt x 180.31364pt>
+<img/escudoUGRmonocromo.png, id=43, 647.17786pt x 180.31364pt>
 File: img/escudoUGRmonocromo.png Graphic file (type png)
 <use img/escudoUGRmonocromo.png>
-Package pdftex.def Info: img/escudoUGRmonocromo.png  used on input line 73.
+Package pdftex.def Info: img/escudoUGRmonocromo.png  used on input line 74.
 (pdftex.def)             Requested size: 250.38434pt x 69.76076pt.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 84.
+(Font)              scaled to size 12.50409pt on input line 85.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 84.
+(Font)              scaled to size 9.37807pt on input line 85.
 LaTeX Font Info:    Font shape `U/msa/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 84.
+(Font)              scaled to size 7.29405pt on input line 85.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 12.50409pt on input line 84.
+(Font)              scaled to size 12.50409pt on input line 85.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 9.37807pt on input line 84.
+(Font)              scaled to size 9.37807pt on input line 85.
 LaTeX Font Info:    Font shape `U/msb/m/n' will be
-(Font)              scaled to size 7.29405pt on input line 84.
+(Font)              scaled to size 7.29405pt on input line 85.
 
-Overfull \hbox (59.38145pt too wide) in paragraph at lines 89--96
+Overfull \hbox (59.38145pt too wide) in paragraph at lines 90--97
 []  [] 
  []
 
@@ -631,7 +631,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
 [3]
-<img/mascaras.png, id=76, 1108.6218pt x 361.35pt>
+<img/mascaras.png, id=81, 1108.6218pt x 361.35pt>
 File: img/mascaras.png Graphic file (type png)
 <use img/mascaras.png>
 Package pdftex.def Info: img/mascaras.png  used on input line 21.
@@ -650,9 +650,9 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[4 <./img/mascaras.png>]) (./content/03_Results.tex
-LaTeX Info: Redefining \. on input line 3.
-LaTeX Info: Redefining \% on input line 3.
+[4 <./img/mascaras.png>]
+LaTeX Info: Redefining \. on input line 91.
+LaTeX Info: Redefining \% on input line 91.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -661,24 +661,35 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[5]
-<img/170x100_distr_r.png, id=98, 1011.78pt x 433.62pt>
+[5])
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[6] (./content/03_Results.tex
+<img/170x100_distr_r.png, id=108, 1011.78pt x 433.62pt>
 File: img/170x100_distr_r.png Graphic file (type png)
 <use img/170x100_distr_r.png>
 Package pdftex.def Info: img/170x100_distr_r.png  used on input line 10.
 (pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
-<img/170x100_distr_c.png, id=99, 1011.78pt x 433.62pt>
+<img/170x100_distr_c.png, id=109, 1011.78pt x 433.62pt>
 File: img/170x100_distr_c.png Graphic file (type png)
 <use img/170x100_distr_c.png>
 Package pdftex.def Info: img/170x100_distr_c.png  used on input line 17.
 (pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
-<img/170x100_distr_qc.png, id=100, 1011.78pt x 433.62pt>
+<img/170x100_distr_qc.png, id=110, 1011.78pt x 433.62pt>
 File: img/170x100_distr_qc.png Graphic file (type png)
 <use img/170x100_distr_qc.png>
 Package pdftex.def Info: img/170x100_distr_qc.png  used on input line 24.
 (pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
 
-Underfull \vbox (badness 1184) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
@@ -690,55 +701,60 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[6 <./img/170x100_distr_r.png> <./img/170x100_distr_c.png>]
+[7 <./img/170x100_distr_r.png> <./img/170x100_distr_c.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
-<img/dens_prob_r_975.png, id=112, 1156.32pt x 433.62pt>
+<img/dens_prob_r_975.png, id=123, 1156.32pt x 433.62pt>
 File: img/dens_prob_r_975.png Graphic file (type png)
 <use img/dens_prob_r_975.png>
 Package pdftex.def Info: img/dens_prob_r_975.png  used on input line 45.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_r_985.png, id=113, 1156.32pt x 433.62pt>
+<img/dens_prob_r_985.png, id=124, 1156.32pt x 433.62pt>
 File: img/dens_prob_r_985.png Graphic file (type png)
 <use img/dens_prob_r_985.png>
 Package pdftex.def Info: img/dens_prob_r_985.png  used on input line 55.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_r_995.png, id=114, 1156.32pt x 433.62pt>
+<img/dens_prob_r_995.png, id=125, 1156.32pt x 433.62pt>
 File: img/dens_prob_r_995.png Graphic file (type png)
 <use img/dens_prob_r_995.png>
 Package pdftex.def Info: img/dens_prob_r_995.png  used on input line 65.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_qc_975.png, id=115, 1156.32pt x 433.62pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 73.
+LaTeX Info: Redefining \% on input line 73.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[8 <./img/170x100_distr_qc.png>]
+<img/dens_prob_qc_975.png, id=132, 1156.32pt x 433.62pt>
 File: img/dens_prob_qc_975.png Graphic file (type png)
 <use img/dens_prob_qc_975.png>
 Package pdftex.def Info: img/dens_prob_qc_975.png  used on input line 81.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_qc_985.png, id=116, 1156.32pt x 433.62pt>
+<img/dens_prob_qc_985.png, id=133, 1156.32pt x 433.62pt>
 File: img/dens_prob_qc_985.png Graphic file (type png)
 <use img/dens_prob_qc_985.png>
 Package pdftex.def Info: img/dens_prob_qc_985.png  used on input line 91.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-<img/dens_prob_qc_995.png, id=117, 1156.32pt x 433.62pt>
+<img/dens_prob_qc_995.png, id=134, 1156.32pt x 433.62pt>
 File: img/dens_prob_qc_995.png Graphic file (type png)
 <use img/dens_prob_qc_995.png>
 Package pdftex.def Info: img/dens_prob_qc_995.png  used on input line 101.
 (pdftex.def)             Requested size: 343.71075pt x 128.8894pt.
-LaTeX Info: Redefining \. on input line 113.
-LaTeX Info: Redefining \% on input line 113.
 
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.59999pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.59999pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
-
-[7 <./img/170x100_distr_qc.png>]) (./content/04_Conclusions.tex) (./main.bbl
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 7.
-LaTeX Info: Redefining \% on input line 7.
+LaTeX Info: Redefining \. on input line 109.
+LaTeX Info: Redefining \% on input line 109.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -747,9 +763,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[8 <./img/dens_prob_r_975.png> <./img/dens_prob_r_985.png> <./img/dens_prob_r_995.png>])
-LaTeX Info: Redefining \. on input line 156.
-LaTeX Info: Redefining \% on input line 156.
+[9 <./img/dens_prob_r_975.png> <./img/dens_prob_r_985.png> <./img/dens_prob_r_995.png>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 114.
+LaTeX Info: Redefining \% on input line 114.
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -758,26 +776,52 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[9 <./img/dens_prob_qc_975.png> <./img/dens_prob_qc_985.png> <./img/dens_prob_qc_995.png>] (./main.aux
+[10 <./img/dens_prob_qc_975.png> <./img/dens_prob_qc_985.png> <./img/dens_prob_qc_995.png>]) (./content/04_Conclusions.tex
+Underfull \hbox (badness 10000) in paragraph at lines 5--6
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 7--8
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--10
+
+ []
+
+) (./main.bbl)
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
+
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.59999pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.59999pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
+
+[11] (./main.aux
 LaTeX Info: Redefining \. on input line 22.
 LaTeX Info: Redefining \% on input line 22.
 )
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5345E383AA1570D41032CFD6FB25EF85;1447.
+(rerunfilecheck)             Checksum: 8EE98200F72D430BBA0CEBD71C506247;1628.
  ) 
 Here is how much of TeX's memory you used:
- 15054 strings out of 476041
- 241637 string characters out of 5793174
+ 15058 strings out of 476041
+ 241681 string characters out of 5793174
  1871388 words of memory out of 6000000
- 35167 multiletter control sequences out of 15000+600000
+ 35168 multiletter control sequences out of 15000+600000
  549870 words of font info for 123 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 67i,12n,77p,739b,582s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,12n,77p,739b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (9 pages, 1645474 bytes).
+Output written on main.pdf (11 pages, 1648666 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
- 36 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 207 PDF objects out of 1000 (max. 8388607)
+ 154 compressed objects within 2 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

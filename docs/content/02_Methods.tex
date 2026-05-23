@@ -88,4 +88,7 @@ D      & \frac{1}{\Delta x^2} & 0      & \dots  & \frac{1}{\Delta y^2} & 0      
 This matrix is called the finite difference matrix (FDM) and it is a sparse matrix, since most of its elements are zero. It has a total of $n_x \times n_y$ elements. The diagonal elements are given by $D = k^2 -\left( \frac{2}{\Delta x^2} + \frac{2}{\Delta y^2} \right)$. The second diagonal elements are going by $\frac{1}{\Delta x^2}$ and it corresponds to the coupling between the nearest points in the $x$-direction. The elements that are $n_x$ positions away from the diagonal are given by $\frac{1}{\Delta y^2}$ and it corresponds to the coupling between the nearest points in the $y$-direction.
 Since in our systems we have a free particle, the potential $V(x,y)$ is zero everywhere inside the billiard and infinite outside. 
 
+\subsection{Eigenvalues distribution}
+Then we calculate the eigenvalues and the eigenvectors of the (\ref{eq:sparse_matrix}), with the help of the library scipy. Now we calculate the difference between consecutive eigenvalues, which is called the spacing distribution (and normalized), and we plot an histogram with those values. This histogram will give us information about the chaocity of the system, since, as we know, the spacing distribution for a chaotic system follows a Wigner-Dyson distribution, while for an integrable system it follows a Poisson distribution.
+
 

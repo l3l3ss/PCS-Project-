@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1779532145.62696 "main.aux" "main.bbl" "main" 1779532146.92141 0
+["bibtex main"] 1779549977.41683 "main.aux" "main.bbl" "main" 1779552002.02839 0
   "./referencias.bib" 1779355013.20671 584 88d420d97c652f29d235e823609967e5 ""
   "/usr/share/texlive/texmf-dist/bibtex/bst/base/unsrt.bst" 1775001600 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "main.aux" 1779532146.76989 6823 af0806b5da8e7286bd2ac6d99937c132 "pdflatex"
+  "main.aux" 1779552001.79623 6965 1e19456bf069b449943bed475e299c4e "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1779532145.67067 "/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex" "main.pdf" "main" 1779532146.9216 0
-  "/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex" 1779530937.91811 3483 684c2c895cd1fbdae0c8a56ee517351f ""
+["pdflatex"] 1779552000.04525 "/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex" "main.pdf" "main" 1779552002.02865 0
+  "/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/docs/main.tex" 1779551999.81405 3703 59e003d0232f54db4ac4301ba0a54364 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1775001600 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm" 1136768653 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
@@ -150,9 +150,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1775812161.42409 4602601 5d02a5c5d52d7237566d144856366042 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1775811963 7753793 1f6d0f0b5bc080514da88cddc7037b02 ""
   "content/01_Introduction.tex" 1779352460.70279 1989 60d2d080f6fcc295d34677a34c307533 ""
-  "content/02_Methods.tex" 1779531053.43366 6120 03669c0c74c6d5679bd294464d65843a ""
-  "content/03_Results.tex" 1779532144.20385 6432 59cf1c492d79331a5c24d1764d9be4dc ""
-  "content/04_Conclusions.tex" 1778669317.47874 48 e9445f2503bb933e31d63af34b73a41c ""
+  "content/02_Methods.tex" 1779534057.0478 6693 07026a97dc526250e516f8c3809fd98b ""
+  "content/03_Results.tex" 1779535755.87503 6428 c68c14ac299aebe603e0d328d6a35496 ""
+  "content/04_Conclusions.tex" 1779550902.13135 1641 90d4c234b28dbcd02746764de951e5a5 ""
   "img/170x100_distr_c.png" 1779530937.90587 93004 2b619e383b1e91c688a697e387e37722 ""
   "img/170x100_distr_qc.png" 1779530937.90635 109860 9385975e5b397143e9cfee715fc84d8a ""
   "img/170x100_distr_r.png" 1779530937.90674 87599 89c947334d9696f9783cd80ffddc1c3e ""
@@ -164,11 +164,11 @@
   "img/dens_prob_r_995.png" 1779530937.91176 234832 3288e70aa674541f24f2acd65ebe0676 ""
   "img/escudoUGRmonocromo.png" 1777312038.73985 160809 de7617aa95455ecd794fe6065fc4748a ""
   "img/mascaras.png" 1779531013.00897 34212 1d520e3ae5e195d543bc83869ede3596 ""
-  "main.aux" 1779532146.76989 6823 af0806b5da8e7286bd2ac6d99937c132 "pdflatex"
-  "main.bbl" 1779532145.66586 281 f265e4f93fa5cd827d03e5a3ac3a0252 "bibtex main"
-  "main.out" 1779532146.77089 1447 5345e383aa1570d41032cfd6fb25ef85 "pdflatex"
-  "main.tex" 1779530937.91811 3483 684c2c895cd1fbdae0c8a56ee517351f ""
-  "main.toc" 1779532146.77174 752 5c35e8d9f6c66527dd15b45f065d2730 "pdflatex"
+  "main.aux" 1779552001.79623 6965 1e19456bf069b449943bed475e299c4e "pdflatex"
+  "main.bbl" 1779549977.47525 281 f265e4f93fa5cd827d03e5a3ac3a0252 "bibtex main"
+  "main.out" 1779552001.79811 1628 8ee98200f72d430bba0cebd71c506247 "pdflatex"
+  "main.tex" 1779551999.81405 3703 59e003d0232f54db4ac4301ba0a54364 ""
+  "main.toc" 1779552001.79878 844 0bce607ebe76ee7eaa668729b89fdab6 "pdflatex"
   (generated)
   "main.aux"
   "main.log"
