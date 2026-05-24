@@ -184,8 +184,8 @@ if __name__ == '__main__':
     
     # 1. Estadio de Bunimovich ('c') -> CAÓTICO
     # Las trayectorias se separan exponencialmente en el espacio de fases
-    print("Simulando Estadio de Bunimovich (Caótico)...")
-    visualizar_caos(tipo_mascara='qc', nx=1000, ny=750, num_trayectorias=1, rebotes=50, variacion_angular=0.01)
+    # print("Simulando Estadio de Bunimovich (Caótico)...")
+    # visualizar_caos(tipo_mascara='qc', nx=1000, ny=750, num_trayectorias=1, rebotes=50, variacion_angular=0.01)
 
     
     # 2. Billar rectangular ('r') -> NO CAÓTICO (Integrable)
@@ -196,3 +196,28 @@ if __name__ == '__main__':
     # 3. Billar cuarto de estadio ('qc') -> CAÓTICO
     # print("\nSimulando Cuarto de Estadio (Caótico)...")
     # visualizar_caos(tipo_mascara='qc', num_trayectorias=3, rebotes=25, variacion_angular=0.005)
+
+    # -------------------------------------------------------------
+    # 4. CICATRIZ CUÁNTICA: Órbita Periódica (Rebote Vertical)
+    # -------------------------------------------------------------
+    # Esta es la trayectoria clásica exacta que genera las famosas "cicatrices"
+    # Prueba con los estados de alta localización como k=848 o k=985.
+    # print("\nSimulando Órbita Periódica (Cicatriz Cuántica - Rebote Vertical)...")
+    # punto_inicio_cicatriz = np.array([35.0, 50.0]) 
+    # angulo_arriba = np.pi / 2
+    # visualizar_caos(tipo_mascara='qc', nx=170, ny=100, num_trayectorias=1, rebotes=50, 
+    #                 variacion_angular=0.0, angulo_base=angulo_arriba, O_inicial=punto_inicio_cicatriz)
+                    
+    # -------------------------------------------------------------
+    # 5. CICATRIZ CUÁNTICA 2: Órbita Periódica (Rebote Horizontal en la base)
+    # -------------------------------------------------------------
+    # Esta trayectoria corresponde a estados hiper-localizados cerca de la base,
+    # como los que ocurren en k=805 o k=868 (Galería de Susurros recta).
+    print("\nSimulando Órbita Periódica (Cicatriz Cuántica - Rebote Horizontal)...")
+    
+    # IMPORTANTE: Empezar en x=5.0 para estar dentro de la frontera (que empieza en x=0.5)
+    punto_inicio_h = np.array([5.0, 1.0]) 
+    angulo_horizontal = 0.0  # 0 grados exactos (hacia la derecha)
+    
+    visualizar_caos(tipo_mascara='qc', nx=170, ny=100, num_trayectorias=1, rebotes=100, 
+                    variacion_angular=0.0, angulo_base=angulo_horizontal, O_inicial=punto_inicio_h)
