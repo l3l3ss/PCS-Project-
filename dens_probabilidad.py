@@ -8,10 +8,10 @@ import os
 Lx, Ly = 1.0, 1.0  # Tamaño del dominio
 Nx, Ny = 170, 100    # Número de puntos en cada dirección
 num_estados = 1000    # Número de estados a calcular
-archivo_csv = 'output/eigenvalues_qc.csv'
+archivo_csv = 'output/eigenvalues_c.csv'
 
 # Crear la máscara y la matriz de diferencias finitas
-mascara = mask.crear_mascara(Nx, Ny, formato='qc', frontera=True)
+mascara = mask.crear_mascara(Nx, Ny, formato='c', frontera=True)
 
 # Comprobar si el archivo ya existe para evitar recalcular
 if not os.path.exists(archivo_csv):
@@ -29,5 +29,5 @@ else:
     autovectores = df.values
 
 # Graficar la densidad de probabilidad para el estado solicitado (altas energías)
-im.plot_densidad_probabilidad(autovectores, mascara, 1)
+im.plot_densidad_probabilidad(autovectores, mascara, 953)
 

@@ -1,13 +1,11 @@
 import numpy as np
 import simulacion_billar as sb
 
-# Shoot from middle of the room towards the bottom right
-O_inicial = np.array([50.0, 50.0])
-vec = np.array([70.0 - 35.1615, -98.5])
-D_inicial = vec / np.linalg.norm(vec)
-
 mascara = sb.crear_mascara(170, 100, 'qc')
 segmentos = sb.obtener_segmentos_contorno(mascara)
+
+O_inicial = np.array([0.5, 10.0])
+D_inicial = np.array([1.0, 0.0])
 
 tray = sb.simular_trayectoria(O_inicial, D_inicial, segmentos, num_rebotes=10)
 print(tray)
