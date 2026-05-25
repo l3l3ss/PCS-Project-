@@ -29,5 +29,5 @@ else:
     autovectores = df.values
 
 # Graficar la densidad de probabilidad para el estado solicitado (altas energías)
-im.plot_densidad_probabilidad(autovectores, mascara, 1)
+im.plot_densidad_probabilidad(autovectores, mascara, 990)
 
