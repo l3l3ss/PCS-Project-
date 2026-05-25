@@ -37,7 +37,7 @@ This produces four different Wigner--Dyson distributions, which, when combined, 
 
 \subsection{Finite Difference Method}
 
-Once we have a grid of the system, where $x_i = i \Delta x$ and $y_j = j \Delta y$, being $i = 1,2,...n_x$ and $j = 1,2,...n_y$. As we know, the HAmiltonian for a teo-dimensional system is given by:
+Once we have a grid of the system, where $x_i = i \Delta x$ and $y_j = j \Delta y$, being $i = 1,2,...n_x$ and $j = 1,2,...n_y$. As we know, the Hamiltonian for a two-dimensional system is given by:
 \begin{equation}
     H = -\frac{\hbar^2}{2m} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} \right) + V(x,y)
     \label{eq:Hamiltonian_2D}
@@ -55,7 +55,7 @@ Now, we can discretize the second derivatives using finite differences. If we co
 \begin{equation}
     \psi(x_i \pm \Delta x) = \psi(x_i) \pm \Delta x \psi'(x_i) + \frac{\Delta x^2}{2} \psi''(x_i) \pm O(\Delta x^3)
 \end{equation}
-Same in the $y$-direction. If we sum the two equations and subtract them, we can get an expression for the second derivative:
+Reordenating terms, we can get an expression for the second derivative:
 
 \begin{equation}
     \psi''(x_i) = \frac{\psi(x_i + \Delta x) - 2\psi(x_i) + \psi(x_i - \Delta x)}{\Delta x^2} + O(\Delta x^2) \approx \frac{\psi_{i+1} - 2\psi_i + \psi_{i-1}}{\Delta x^2}
