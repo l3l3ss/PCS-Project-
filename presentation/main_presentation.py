@@ -1,0 +1,40 @@
+from manim import *
+from manim_slides import Slide
+
+from parte1_juego_billar import play_parte1
+from parte2_metodo_utilizado import play_parte2
+from parte3_repulsion_niveles import play_parte3
+from parte4_trayectorias import play_parte4
+from parte5_simetrias import play_parte5
+
+class PresentacionGeneral(Slide):
+    """
+    Escena principal que junta todas las partes de la presentación.
+    """
+    
+    def construct(self):
+        # Diapositiva de Título General
+        titulo_principal = Text("Caos Cuántico en Billares", font_size=56, color=TEAL)
+        subtitulo = Text("Proyecto de Física de Sistemas Complejos", font_size=32)
+        subtitulo.next_to(titulo_principal, DOWN)
+        
+        self.play(FadeIn(titulo_principal, shift=UP))
+        self.play(Write(subtitulo))
+        self.next_slide()
+        
+        self.play(FadeOut(titulo_principal), FadeOut(subtitulo))
+        
+        # Ejecutamos las funciones importadas
+        # Cada función se encarga de añadir, animar y limpiar su contenido en 'self' (la escena)
+        
+        play_parte1(self)
+        play_parte2(self)
+        play_parte3(self)
+        play_parte4(self)
+        play_parte5(self)
+        
+        # Diapositiva de Cierre
+        cierre = Text("¡Gracias por su atención!", font_size=48)
+        self.play(Write(cierre))
+        self.next_slide()
+        self.play(FadeOut(cierre))

@@ -1,3 +1,5 @@
 *.bib
 __pycache__/
 *.csv
+media/
+slides/
