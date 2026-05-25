@@ -1,27 +1,432 @@
 from manim import *
+import numpy as np
+
+def QuadraticBezier(p0, p1, p2, color=WHITE):
+    """ Helper function to create a quadratic bezier curve using CubicBezier """
+    return CubicBezier(p0, p0 + (2/3)*(p1 - p0), p2 + (2/3)*(p1 - p2), p2, color=color)
 
 def play_parte3(scene):
     """
-    Sección 3: Repulsión de Niveles
+    Section 3: Quantum Domains, Separability & Level Repulsion
     """
-    titulo = Text("3. Repulsión de Niveles", font_size=48, color=YELLOW)
+    # =========================================================
+    # PART 3A: DOMAINS & SEPARABILITY (Original code)
+    # =========================================================
+    title = Text("3. Domains & Separability", font_size=40, color=YELLOW).to_edge(UP)
+    scene.play(Write(title))
     
-    scene.play(DrawBorderThenFill(titulo))
-    scene.next_slide()
-    
-    scene.play(titulo.animate.to_edge(UP))
-    
-    ejes = Axes(
-        x_range=[0, 4, 1],
-        y_range=[0, 1, 0.2],
-        axis_config={"color": WHITE},
-        x_length=6,
-        y_length=4
+    # Rectangular Domain
+    rect = Rectangle(width=3, height=2, color=BLUE)
+    rect_axes = VGroup(
+        Arrow(start=rect.get_corner(DL) + LEFT*0.5, end=rect.get_corner(DR) + RIGHT*0.5, buff=0, color=WHITE),
+        Arrow(start=rect.get_corner(DL) + DOWN*0.5, end=rect.get_corner(UL) + UP*0.5, buff=0, color=WHITE)
     )
-    labels = ejes.get_axis_labels(x_label="s", y_label="P(s)")
+    rect_group = VGroup(rect_axes, rect).shift(LEFT * 3)
+    rect_label = Text("Rectangular\n(separable)", font_size=24, color=BLUE).next_to(rect_group, DOWN)
     
-    scene.play(Create(ejes), Write(labels))
+    # Stadium Domain
+    stadium = VGroup(
+        Line(LEFT*1.5 + UP, RIGHT*1.5 + UP, color=RED),
+        Line(LEFT*1.5 + DOWN, RIGHT*1.5 + DOWN, color=RED),
+        ArcBetweenPoints(RIGHT*1.5 + UP, RIGHT*1.5 + DOWN, angle=-PI, color=RED),
+        ArcBetweenPoints(LEFT*1.5 + DOWN, LEFT*1.5 + UP, angle=-PI, color=RED)
+    ).shift(RIGHT * 3)
+    
+    stadium_label = Text("Stadium\n(non-separable)", font_size=24, color=RED).next_to(stadium, DOWN)
+    
+    scene.play(
+        Create(rect_group),
+        Create(stadium),
+        run_time=2
+    )
+    scene.play(
+        Write(rect_label),
+        Write(stadium_label)
+    )
     
     scene.next_slide()
     
-    scene.play(FadeOut(titulo), FadeOut(ejes), FadeOut(labels))
+    # ---------------------------------------------------------
+    # SCENE 2: IDEA OF SEPARABILITY (Rectangular)
+    # ---------------------------------------------------------
+    scene.play(
+        FadeOut(stadium), FadeOut(stadium_label),
+        rect_group.animate.move_to(ORIGIN).scale(1.5),
+        rect_label.animate.next_to(rect_group.copy().move_to(ORIGIN).scale(1.5), DOWN*2)
+    )
+    
+    # x-mode
+    vertical_stripes = VGroup()
+    for i in range(6):
+        x = interpolate(-2.25, 2.25, (i + 0.5) / 6)
+        stripe = Rectangle(width=4.5/6 * 0.5, height=3, color=TEAL, fill_opacity=0.6, stroke_width=0)
+        stripe.move_to(rect_group[1].get_center() + RIGHT * x)
+        vertical_stripes.add(stripe)
+        
+    # y-mode
+    horizontal_stripes = VGroup()
+    for i in range(4):
+        y = interpolate(-1.5, 1.5, (i + 0.5) / 4)
+        stripe = Rectangle(width=4.5, height=3/4 * 0.5, color=PURPLE, fill_opacity=0.6, stroke_width=0)
+        stripe.move_to(rect_group[1].get_center() + UP * y)
+        horizontal_stripes.add(stripe)
+        
+    msg_2 = Text("Two independent degrees of freedom", font_size=24, color=YELLOW).next_to(title, DOWN)
+    
+    # Step 1: x-pattern
+    scene.play(FadeIn(vertical_stripes), Write(msg_2))
+    scene.next_slide()
+    
+    # Step 2: Fade x, show y
+    scene.play(FadeOut(vertical_stripes), FadeIn(horizontal_stripes))
+    scene.next_slide()
+    
+    # Step 3: Combine -> 2D checkerboard
+    grid_rects = VGroup()
+    for vx in vertical_stripes:
+        for hy in horizontal_stripes:
+            intersect = Rectangle(
+                width=vx.width, height=hy.height,
+                color=GREEN, fill_opacity=0.8, stroke_width=0
+            ).move_to(np.array([vx.get_x(), hy.get_y(), 0]))
+            grid_rects.add(intersect)
+            
+    scene.play(FadeIn(vertical_stripes))
+    scene.play(ReplacementTransform(VGroup(vertical_stripes, horizontal_stripes), grid_rects))
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # SCENE 3: DEGENERACY IN A BOX
+    # ---------------------------------------------------------
+    scene.play(
+        FadeOut(VGroup(grid_rects, rect_group, rect_label, msg_2))
+    )
+    
+    msg_3 = Text("Degeneracy & Separable Structure", font_size=28, color=YELLOW).next_to(title, DOWN)
+    
+    axes_n = Axes(
+        x_range=[0, 6, 1],
+        y_range=[0, 6, 1],
+        x_length=5,
+        y_length=5,
+        axis_config={"include_numbers": True},
+        tips=False
+    ).shift(DOWN*0.5 + LEFT*2)
+    labels_n = axes_n.get_axis_labels(x_label="n_x", y_label="n_y")
+    
+    dots = VGroup()
+    for x in range(1, 6):
+        for y in range(1, 6):
+            dot = Dot(axes_n.c2p(x, y), color=BLUE)
+            dots.add(dot)
+            
+    formula = MathTex("E_{n_x, n_y} = E_x(n_x) + E_y(n_y)", font_size=36).next_to(axes_n, RIGHT, buff=1).shift(UP*1)
+    
+    scene.play(Write(msg_3), Create(axes_n), Write(labels_n))
+    scene.play(LaggedStartMap(FadeIn, dots, shift=UP*0.1, lag_ratio=0.01))
+    scene.play(Write(formula))
+    
+    scene.next_slide()
+    
+    dot_24 = Dot(axes_n.c2p(2, 4), color=YELLOW, radius=0.1)
+    dot_42 = Dot(axes_n.c2p(4, 2), color=RED, radius=0.1)
+    scene.play(FadeIn(dot_24), FadeIn(dot_42))
+    
+    arc_swap = ArcBetweenPoints(axes_n.c2p(2,4), axes_n.c2p(4,2), angle=-PI/2, color=WHITE)
+    arc_swap.add_tip()
+    
+    scene.play(Create(arc_swap))
+    scene.play(Swap(dot_24, dot_42), path_arc=-PI/2)
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # SCENE 4: STADIUM: MISMA IDEA, PERO FALLA LA SEPARABILIDAD
+    # ---------------------------------------------------------
+    scene.play(
+        FadeOut(VGroup(axes_n, labels_n, dots, formula, msg_3, arc_swap, dot_24, dot_42))
+    )
+    
+    stadium_large = stadium.copy().move_to(ORIGIN).scale(1.5)
+    msg_4 = Text("Nodes do not respect Cartesian axes", font_size=28, color=YELLOW).next_to(title, DOWN)
+    
+    scene.play(Create(stadium_large), Write(msg_4))
+    
+    curves_x = VGroup(*[
+        QuadraticBezier(
+            stadium_large.get_center() + UP*1.4 + RIGHT*x,
+            stadium_large.get_center() + RIGHT*(x + 0.8*np.sign(x)),
+            stadium_large.get_center() + DOWN*1.4 + RIGHT*x,
+            color=TEAL
+        ) for x in np.linspace(-2, 2, 5)
+    ])
+    
+    curves_y = VGroup(*[
+        QuadraticBezier(
+            stadium_large.get_center() + LEFT*2.5 + UP*y,
+            stadium_large.get_center() + UP*(y + 0.5*np.sign(y)),
+            stadium_large.get_center() + RIGHT*2.5 + UP*y,
+            color=PURPLE
+        ) for y in np.linspace(-1, 1, 4)
+    ])
+
+    scene.play(Create(curves_x))
+    scene.next_slide()
+    
+    scene.play(FadeOut(curves_x), Create(curves_y))
+    scene.next_slide()
+    
+    scene.play(FadeIn(curves_x))
+    cross_mark = Cross(VGroup(curves_x, curves_y), stroke_width=6, stroke_color=RED).scale(1.5)
+    msg_no_prod = Text("Not a simple product!", font_size=32, color=RED).next_to(stadium_large, DOWN)
+    
+    scene.play(Create(cross_mark), Write(msg_no_prod))
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # SCENE 5: COUPLING BETWEEN AXES
+    # ---------------------------------------------------------
+    scene.play(
+        FadeOut(VGroup(stadium_large, msg_4, curves_x, curves_y, cross_mark, msg_no_prod))
+    )
+    
+    msg_5 = Text("Coupling Between Axes", font_size=32, color=YELLOW).next_to(title, DOWN)
+    scene.play(Write(msg_5))
+    
+    rect_small = Rectangle(width=3, height=2, color=BLUE).shift(LEFT*3.5 + UP*0.5)
+    stad_small = VGroup(
+        Line(LEFT*1 + UP*0.8, RIGHT*1 + UP*0.8, color=RED),
+        Line(LEFT*1 + DOWN*0.8, RIGHT*1 + DOWN*0.8, color=RED),
+        ArcBetweenPoints(RIGHT*1 + UP*0.8, RIGHT*1 + DOWN*0.8, angle=-PI, color=RED),
+        ArcBetweenPoints(LEFT*1 + DOWN*0.8, LEFT*1 + UP*0.8, angle=-PI, color=RED)
+    ).shift(RIGHT*3.5 + UP*0.5)
+    
+    scene.play(Create(rect_small), Create(stad_small))
+    
+    slider = NumberLine(x_range=[0, 10, 1], length=6, color=WHITE).shift(DOWN*2.5)
+    slider_label = Text("Parameter A (x-mode)", font_size=24).next_to(slider, LEFT)
+    pointer = Triangle(color=YELLOW, fill_opacity=1).scale(0.2).rotate(PI).next_to(slider.n2p(0), UP, buff=0.1)
+    
+    scene.play(Create(slider), Write(slider_label), DrawBorderThenFill(pointer))
+    
+    def get_rect_grid(t):
+        vg = VGroup()
+        center = rect_small.get_center()
+        for i in range(1, 6):
+            x_prop = (i/6 - 0.5)*2
+            x_shift = np.sin(t + i)*0.3
+            vg.add(Line(
+                center + RIGHT*(x_prop*1.5 + x_shift) + DOWN*1, 
+                center + RIGHT*(x_prop*1.5 + x_shift) + UP*1, 
+                color=TEAL
+            ))
+        for i in range(1, 4):
+            y_prop = (i/4 - 0.5)*2
+            vg.add(Line(
+                center + LEFT*1.5 + UP*(y_prop*1), 
+                center + RIGHT*1.5 + UP*(y_prop*1), 
+                color=PURPLE
+            ))
+        return vg
+
+    def get_stad_grid(t):
+        vg = VGroup()
+        center = stad_small.get_center()
+        for i in range(1, 6):
+            x_prop = (i/6 - 0.5)*2
+            vg.add(QuadraticBezier(
+                center + RIGHT*(x_prop*1.8) + UP*0.8,
+                center + RIGHT*(x_prop*1.8 + np.sin(t*0.5)*0.5) + UP*(0.3 * np.cos(t+i)), 
+                center + RIGHT*(x_prop*1.8) + DOWN*0.8,
+                color=TEAL
+            ))
+        for i in range(1, 4):
+            y_prop = (i/4 - 0.5)*2
+            vg.add(QuadraticBezier(
+                center + LEFT*1.5 + UP*(y_prop*0.8),
+                center + RIGHT*(0.5 * np.sin(t*0.5-i)) + UP*(y_prop*0.8 + np.cos(t*0.5)*0.2),
+                center + RIGHT*1.5 + UP*(y_prop*0.8),
+                color=PURPLE
+            ))
+        return vg
+
+    t_tracker = ValueTracker(0)
+    rect_g = always_redraw(lambda: get_rect_grid(t_tracker.get_value()))
+    stad_g = always_redraw(lambda: get_stad_grid(t_tracker.get_value()))
+    
+    pointer.add_updater(lambda p: p.next_to(slider.n2p(t_tracker.get_value()), UP, buff=0.1))
+    
+    scene.play(Create(rect_g), Create(stad_g))
+    
+    # Animate fluid change
+    scene.play(t_tracker.animate.set_value(10), run_time=6, rate_func=there_and_back)
+    
+    pointer.clear_updaters()
+    scene.next_slide()
+    
+    # Cleanup for next section
+    scene.play(
+        FadeOut(VGroup(msg_5, slider, slider_label, pointer, rect_g, stad_g, rect_small, stad_small, title))
+    )
+    
+    # =========================================================
+    # PART 3B: LEVEL REPULSION (New code)
+    # =========================================================
+    # General Title for Section
+    title_repulsion = Text("Level Repulsion", font_size=40, color=YELLOW).to_edge(UP)
+    scene.play(Write(title_repulsion))
+    
+    # ---------------------------------------------------------
+    # Slide 1: Eigenvalue separation equation
+    # ---------------------------------------------------------
+    eq_text = Text("Nearest-Neighbor Spacing:", font_size=32).shift(UP*0.5)
+    
+    # In the prompt user mentions K_i, but sketch shows E_i. We will use E_i 
+    # to represent Energy levels (or eigenvalues).
+    eq_formula = MathTex(r"s_i = E_i - E_{i-1}", font_size=48).next_to(eq_text, DOWN, buff=0.5)
+    
+    box = SurroundingRectangle(eq_formula, color=WHITE, buff=0.3)
+    
+    scene.play(Write(eq_text))
+    scene.play(Write(eq_formula), Create(box))
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # Slide 2: Histograms
+    # ---------------------------------------------------------
+    scene.play(FadeOut(eq_text), FadeOut(eq_formula), FadeOut(box))
+    
+    # Poisson distribution data (decaying)
+    np.random.seed(42)
+    poisson_data = np.random.exponential(scale=1.0, size=500)
+    poisson_hist, _ = np.histogram(poisson_data, bins=15, range=(0, 4), density=True)
+    
+    # Wigner-Dyson distribution data
+    def wigner_dyson(x):
+        return (np.pi / 2) * x * np.exp(- (np.pi / 4) * x**2)
+    
+    x_rand = np.random.uniform(0, 4, 2000)
+    y_rand = np.random.uniform(0, 1.2, 2000)
+    wd_data = x_rand[y_rand < wigner_dyson(x_rand)]
+    wd_data = wd_data[:500]
+    wd_hist, _ = np.histogram(wd_data, bins=15, range=(0, 4), density=True)
+    
+    # Axes for histograms
+    axes_rect = Axes(
+        x_range=[0, 4, 1],
+        y_range=[0, 1.2, 0.5],
+        x_length=4,
+        y_length=3,
+        axis_config={"include_numbers": False},
+        tips=False,
+    ).shift(LEFT * 3.5 + DOWN * 0.5)
+    
+    axes_stad = Axes(
+        x_range=[0, 4, 1],
+        y_range=[0, 1.2, 0.5],
+        x_length=4,
+        y_length=3,
+        axis_config={"include_numbers": False},
+        tips=False,
+    ).shift(RIGHT * 3.5 + DOWN * 0.5)
+    
+    # Labels
+    label_rect = Text("Rectangular", font_size=28).next_to(axes_rect, UP)
+    label_stad = Text("Stadium", font_size=28).next_to(axes_stad, UP)
+    
+    # Function to draw bars
+    def get_bars(axes, hist_data, color):
+        bars = VGroup()
+        bar_width = axes.x_length / 15
+        for i, h in enumerate(hist_data):
+            x_val = (i + 0.5) * (4 / 15)
+            y_val = h
+            bottom = axes.c2p(x_val - (4/30), 0)
+            top = axes.c2p(x_val - (4/30), y_val)
+            height = np.linalg.norm(top - bottom)
+            
+            rect = Rectangle(width=bar_width*0.8, height=height, color=color, fill_opacity=0.7)
+            rect.move_to(bottom + UP * height/2)
+            bars.add(rect)
+        return bars
+    
+    bars_rect = get_bars(axes_rect, poisson_hist, BLUE)
+    bars_stad = get_bars(axes_stad, wd_hist, RED)
+    
+    scene.play(Create(axes_rect), Create(axes_stad), Write(label_rect), Write(label_stad))
+    scene.play(
+        AnimationGroup(*[GrowFromEdge(bar, DOWN) for bar in bars_rect], lag_ratio=0.08),
+        AnimationGroup(*[GrowFromEdge(bar, DOWN) for bar in bars_stad], lag_ratio=0.08)
+    )
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # Slide 3: BGS -> Random Matrix Theory
+    # ---------------------------------------------------------
+    scene.play(FadeOut(axes_rect), FadeOut(axes_stad), FadeOut(label_rect), FadeOut(label_stad), FadeOut(bars_rect), FadeOut(bars_stad))
+    
+    bgs_text = Text("BGS Conjecture", font_size=42, color=TEAL).shift(UP*1)
+    
+    arrow = Arrow(UP, DOWN, color=WHITE, buff=0.5).next_to(bgs_text, DOWN)
+    
+    rmt_text = Text("Random Matrix Theory (RMT)", font_size=42, color=ORANGE).next_to(arrow, DOWN)
+    
+    scene.play(Write(bgs_text))
+    scene.play(GrowArrow(arrow))
+    scene.play(Write(rmt_text))
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # Slide 5.1: Histograms + Curves + Formulas
+    # ---------------------------------------------------------
+    scene.play(FadeOut(bgs_text), FadeOut(arrow), FadeOut(rmt_text))
+    
+    # Bring back axes and labels
+    scene.play(
+        FadeIn(axes_rect), FadeIn(axes_stad), FadeIn(label_rect), FadeIn(label_stad),
+        AnimationGroup(*[GrowFromEdge(bar, DOWN) for bar in bars_rect], lag_ratio=0.05),
+        AnimationGroup(*[GrowFromEdge(bar, DOWN) for bar in bars_stad], lag_ratio=0.05)
+    )
+    
+    formula_poisson = MathTex(r"P(s) = e^{-s}", font_size=32).next_to(axes_rect, UP, buff=0.8)
+    formula_wd = MathTex(r"P(s) = \frac{\pi}{2} s \exp\left(-\frac{\pi}{4} s^2\right)", font_size=32).next_to(axes_stad, UP, buff=0.8)
+    
+    # We will move the labels up a bit to make room for formulas between label and axes
+    scene.play(
+        label_rect.animate.next_to(formula_poisson, UP, buff=0.2),
+        label_stad.animate.next_to(formula_wd, UP, buff=0.2)
+    )
+    
+    scene.play(Write(formula_poisson), Write(formula_wd))
+    
+    # Plot curves
+    curve_poisson = axes_rect.plot(lambda x: np.exp(-x), color=YELLOW, x_range=[0, 4])
+    curve_wd = axes_stad.plot(wigner_dyson, color=YELLOW, x_range=[0, 4])
+    
+    scene.play(Create(curve_poisson), Create(curve_wd))
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # Slide 5.2: Deterministic vs Chaotic labels
+    # ---------------------------------------------------------
+    det_label = Text("Deterministic / Integrable", font_size=24, color=BLUE).next_to(axes_rect, DOWN, buff=0.5)
+    chaotic_label = Text("Chaotic", font_size=24, color=RED).next_to(axes_stad, DOWN, buff=0.5)
+    
+    scene.play(Write(det_label), Write(chaotic_label))
+    
+    scene.next_slide()
+    
+    # Cleanup for next part
+    scene.play(
+        FadeOut(VGroup(
+            title_repulsion, axes_rect, axes_stad, label_rect, label_stad, 
+            bars_rect, bars_stad, formula_poisson, formula_wd, 
+            curve_poisson, curve_wd, det_label, chaotic_label
+        ))
+    )
