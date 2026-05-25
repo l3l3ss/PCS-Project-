@@ -18,7 +18,7 @@ def play_parte2(self):
     
     # Consideraciones: V=0, hbar^2/2m = 1
     considerations = MathTex(
-        r"V(x,y) = 0", r"\quad \text{y} \quad", r"\frac{\hbar^2}{2m} = 1"
+        r"V(x,y) = 0", r"\quad \text{and} \quad", r"\frac{\hbar^2}{2m} = 1"
     ).next_to(arrow, DOWN, buff=0.5)
 
     self.play(GrowArrow(arrow))
@@ -67,7 +67,7 @@ def play_parte2(self):
     self.play(FadeIn(blue_rects))
     
     # Texto: Azul = True
-    true_text = Text("Azul = True", color=BLUE, font_size=36).next_to(rect, DOWN)
+    true_text = Text("Blue = True", color=BLUE, font_size=36).next_to(rect, DOWN)
     self.play(Write(true_text))
     self.next_slide()
 
@@ -121,28 +121,28 @@ def play_parte2(self):
     self.play(FadeIn(stadium_cells))
     
     # Textos Rojo = False, Azul = True
-    false_text = Text("Rojo = False", color=RED, font_size=36).next_to(rect, DOWN).shift(LEFT * 2)
-    true_text2 = Text("Azul = True", color=BLUE, font_size=36).next_to(rect, DOWN).shift(RIGHT * 2)
+    false_text = Text("Red = False", color=RED, font_size=36).next_to(rect, DOWN).shift(LEFT * 2)
+    true_text2 = Text("Blue = True", color=BLUE, font_size=36).next_to(rect, DOWN).shift(RIGHT * 2)
     self.play(Write(false_text), Write(true_text2))
     self.next_slide()
 
     # --- Animación 2.3 ---
-    # Guardamos copias visuales
-    rect_cells_group = blue_rects.copy()
+    # Transición fluida: movemos la caja y el estadio actual a la derecha,
+    # y creamos una copia que se mueve a la izquierda revelando las celdas azules.
     
-    # Creamos el grupo de la derecha que incluye el rectángulo contenedor y el estadio
-    bounding_box_right = rect.copy()
-    stadium_cells_group = VGroup(bounding_box_right, stadium_cells.copy())
+    bounding_box_left = rect.copy()
+    dummy_blue = blue_rects.copy().set_opacity(0)
+    target_blue = blue_rects.copy().scale(0.8).move_to(LEFT * 3.5 + DOWN * 0.5)
+    
+    self.add(bounding_box_left, dummy_blue)
     
     self.play(
-        FadeOut(rect), FadeOut(grid), FadeOut(stadium), FadeOut(stadium_cells), FadeOut(false_text), FadeOut(true_text2)
+        FadeOut(grid), FadeOut(stadium), FadeOut(false_text), FadeOut(true_text2),
+        rect.animate.scale(0.8).move_to(RIGHT * 3.5 + DOWN * 0.5),
+        stadium_cells.animate.scale(0.8).move_to(RIGHT * 3.5 + DOWN * 0.5),
+        bounding_box_left.animate.scale(0.8).move_to(LEFT * 3.5 + DOWN * 0.5),
+        ReplacementTransform(dummy_blue, target_blue)
     )
-    
-    # Mover a los lados en tamaño más grande (como en la foto adjunta)
-    rect_cells_group.scale(0.8).move_to(LEFT * 3.5 + DOWN * 0.5)
-    stadium_cells_group.scale(0.8).move_to(RIGHT * 3.5 + DOWN * 0.5)
-    
-    self.play(FadeIn(rect_cells_group), FadeIn(stadium_cells_group))
     
     # Mostrar nx y ny arriba
     nx_ny = MathTex(r"n_x = 170 \quad \quad n_y = 100").to_edge(UP).shift(DOWN * 0.5)
@@ -150,7 +150,7 @@ def play_parte2(self):
     self.next_slide()
     
     # Transición
-    self.play(FadeOut(rect_cells_group), FadeOut(stadium_cells_group), FadeOut(nx_ny))
+    self.play(FadeOut(bounding_box_left), FadeOut(target_blue), FadeOut(rect), FadeOut(stadium_cells), FadeOut(nx_ny))
 
 
     # =========================================================
@@ -272,8 +272,15 @@ def play_parte2(self):
     """
     
     matrix_math = MathTex(matrix_tex).scale(0.8)
+    
+    # Añadimos el valor de D debajo de la matriz
+    d_math = MathTex(r"D = k^2 - \left( \frac{2}{\Delta x^2} + \frac{2}{\Delta y^2} \right)").scale(0.8)
+    
+    group_matrix = VGroup(matrix_math, d_math).arrange(DOWN, buff=0.8).move_to(ORIGIN)
+    
     self.play(Write(matrix_math))
+    self.play(FadeIn(d_math, shift=UP))
     self.next_slide()
     
     # Final de la presentación
-    self.play(FadeOut(matrix_math))
+    self.play(FadeOut(group_matrix))
