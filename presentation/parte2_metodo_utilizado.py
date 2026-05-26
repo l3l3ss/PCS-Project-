@@ -274,7 +274,7 @@ def play_parte2(self):
     matrix_math = MathTex(matrix_tex).scale(0.8)
     
     # Añadimos el valor de D debajo de la matriz
-    d_math = MathTex(r"D = k^2 - \left( \frac{2}{\Delta x^2} + \frac{2}{\Delta y^2} \right)").scale(0.8)
+    d_math = MathTex(r"D = E - \left( \frac{2}{\Delta x^2} + \frac{2}{\Delta y^2} \right)").scale(0.8)
     
     group_matrix = VGroup(matrix_math, d_math).arrange(DOWN, buff=0.8).move_to(ORIGIN)
     
