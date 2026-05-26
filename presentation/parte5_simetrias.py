@@ -194,7 +194,7 @@ def play_parte5(scene):
     scene.next_slide()
     
     # 6. Transition to Quarter Stadium with Grid
-    texto_cuarto = Text("Quarter Stadium Grid (Exploiting Symmetry)", font_size=28, color=BLUE).to_edge(UP).shift(DOWN * 0.5)
+    texto_cuarto = Text("Quarter Stadium Grid (Exploiting Symmetry)", font_size=28, color=BLUE).next_to(titulo, DOWN, buff=0.3)
     
     # Keep only the first quadrant
     scene.play(
