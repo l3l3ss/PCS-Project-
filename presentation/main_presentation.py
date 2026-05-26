@@ -14,8 +14,8 @@ class PresentacionGeneral(Slide):
     
     def construct(self):
         # Diapositiva de Título General
-        titulo_principal = Text("Caos Cuántico en Billares", font_size=56, color=TEAL)
-        subtitulo = Text("Proyecto de Física de Sistemas Complejos", font_size=32)
+        titulo_principal = Text("Quantum Chaos and the\nStatistics of Energy Levels", font_size=48, color=TEAL)
+        subtitulo = Text("Pablo Orellana and María de los Ángeles Lara", font_size=32)
         subtitulo.next_to(titulo_principal, DOWN)
         
         self.play(FadeIn(titulo_principal, shift=UP))
@@ -34,7 +34,11 @@ class PresentacionGeneral(Slide):
         play_parte5(self)
         
         # Diapositiva de Cierre
-        cierre = Text("¡Gracias por su atención!", font_size=48)
-        self.play(Write(cierre))
+        cierre = Text("Thanks for watching", font_size=48)
+        mascota = ImageMobject("output/picho.png")
+        mascota.scale(1.2)
+        mascota.to_corner(DR)
+        
+        self.play(Write(cierre), FadeIn(mascota))
         self.next_slide()
-        self.play(FadeOut(cierre))
+        self.play(FadeOut(cierre), FadeOut(mascota))
