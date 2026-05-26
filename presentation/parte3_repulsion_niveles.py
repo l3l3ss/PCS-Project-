@@ -422,11 +422,50 @@ def play_parte3(scene):
     
     scene.next_slide()
     
-    # Cleanup for next part
+    # Fade out previous plots but keep the title for the final slide
     scene.play(
         FadeOut(VGroup(
-            title_repulsion, axes_rect, axes_stad, label_rect, label_stad, 
+            axes_rect, axes_stad, label_rect, label_stad, 
             bars_rect, bars_stad, formula_poisson, formula_wd, 
             curve_poisson, curve_wd, det_label, chaotic_label
+        ))
+    )
+    
+    # ---------------------------------------------------------
+    # Slide 6: Our Results - First Image
+    # ---------------------------------------------------------
+    results_subtitle = Text("Our Results", font_size=32, color=WHITE).next_to(title_repulsion, DOWN)
+    
+    img_distr_r = ImageMobject("/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/output/170x100_distr_r_solo.png")
+    img_distr_r.height = 5.5
+    img_distr_r.move_to(DOWN * 0.5)
+    
+    scene.play(Write(results_subtitle))
+    scene.play(
+        FadeIn(img_distr_r)
+    )
+    
+    scene.next_slide()
+    
+    # ---------------------------------------------------------
+    # Slide 7: Our Results - Second Image
+    # ---------------------------------------------------------
+    img_distr_qc = ImageMobject("/home/pabloore/conjuntoV/universidad/Practicas/fisicaComplejos/PCS-Project-/output/170x100_solo_distr_qc.png")
+    img_distr_qc.height = 5.5
+    img_distr_qc.move_to(DOWN * 0.5)
+    
+    scene.play(
+        FadeOut(img_distr_r)
+    )
+    scene.play(
+        FadeIn(img_distr_qc)
+    )
+    
+    scene.next_slide()
+    
+    # Cleanup for next part
+    scene.play(
+        FadeOut(Group(
+            title_repulsion, results_subtitle, img_distr_qc
         ))
     )
