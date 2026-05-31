@@ -74,12 +74,12 @@ def plot_distribucion_espaciado(espaciados, mascara, formato=None, bins=100):
 
 if __name__ == "__main__":
 
-    formatos = ['c']
+    formatos = ['qc']
 
     for formato_elegido in formatos:
         mascara = masc.crear_mascara(170, 100, formato=formato_elegido)
         matrizA = integ.finite_difference(mascara)
-        autovalores, autovectores = integ.encontrar_autovalores(matrizA, 1000)
+        autovalores, autovectores = integ.encontrar_autovalores(matrizA, 1500)
         espaciados = np.diff(autovalores)
 
-        plot_distribucion_espaciado(espaciados, mascara, formato=formato_elegido, bins=100)
+        plot_distribucion_espaciado(espaciados, mascara, formato=formato_elegido, bins=80)
