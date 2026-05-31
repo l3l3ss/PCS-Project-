@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.24)  25 MAY 2026 15:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2026.4.24)  31 MAY 2026 20:21
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -683,11 +683,11 @@ File: img/170x100_distr_c.png Graphic file (type png)
 <use img/170x100_distr_c.png>
 Package pdftex.def Info: img/170x100_distr_c.png  used on input line 17.
 (pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
-<img/170x100_distr_qc.png, id=110, 1011.78pt x 433.62pt>
-File: img/170x100_distr_qc.png Graphic file (type png)
-<use img/170x100_distr_qc.png>
-Package pdftex.def Info: img/170x100_distr_qc.png  used on input line 24.
-(pdftex.def)             Requested size: 429.63681pt x 184.13057pt.
+<img/170x100_distr_qc_1500eig_35bin.png, id=110, 786.2976pt x 359.1819pt>
+File: img/170x100_distr_qc_1500eig_35bin.png Graphic file (type png)
+<use img/170x100_distr_qc_1500eig_35bin.png>
+Package pdftex.def Info: img/170x100_distr_qc_1500eig_35bin.png  used on input line 24.
+(pdftex.def)             Requested size: 429.63681pt x 196.2572pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -734,7 +734,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.59999pt}.
 
-[8 <./img/170x100_distr_qc.png>]
+[8 <./img/170x100_distr_qc_1500eig_35bin.png>]
 <img/dens_prob_qc_975.png, id=132, 1156.32pt x 433.62pt>
 File: img/dens_prob_qc_975.png Graphic file (type png)
 <use img/dens_prob_qc_975.png>
@@ -811,14 +811,14 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  15058 strings out of 476034
- 241630 string characters out of 5792864
+ 241728 string characters out of 5792864
  1872388 words of memory out of 6000000
  35169 multiletter control sequences out of 15000+600000
  549870 words of font info for 123 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
  67i,12n,77p,722b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (11 pages, 1648397 bytes).
+Output written on main.pdf (11 pages, 1634414 bytes).
 PDF statistics:
  207 PDF objects out of 1000 (max. 8388607)
  154 compressed objects within 2 object streams

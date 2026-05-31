@@ -82,4 +82,4 @@ if __name__ == "__main__":
         autovalores, autovectores = integ.encontrar_autovalores(matrizA, 1500)
         espaciados = np.diff(autovalores)
 
-        plot_distribucion_espaciado(espaciados, mascara, formato=formato_elegido, bins=80)
+        plot_distribucion_espaciado(espaciados, mascara, formato=formato_elegido, bins=25)

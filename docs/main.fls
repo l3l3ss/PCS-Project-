@@ -1041,11 +1041,11 @@ INPUT ./img/170x100_distr_c.png
 INPUT img/170x100_distr_c.png
 INPUT ./img/170x100_distr_c.png
 INPUT ./img/170x100_distr_c.png
-INPUT ./img/170x100_distr_qc.png
-INPUT ./img/170x100_distr_qc.png
-INPUT img/170x100_distr_qc.png
-INPUT ./img/170x100_distr_qc.png
-INPUT ./img/170x100_distr_qc.png
+INPUT ./img/170x100_distr_qc_1500eig_35bin.png
+INPUT ./img/170x100_distr_qc_1500eig_35bin.png
+INPUT img/170x100_distr_qc_1500eig_35bin.png
+INPUT ./img/170x100_distr_qc_1500eig_35bin.png
+INPUT ./img/170x100_distr_qc_1500eig_35bin.png
 INPUT ./img/dens_prob_r_975.png
 INPUT ./img/dens_prob_r_975.png
 INPUT img/dens_prob_r_975.png

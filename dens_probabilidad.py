@@ -7,8 +7,8 @@ import os
 # Parámetros de la simulación
 Lx, Ly = 1.0, 1.0  # Tamaño del dominio
 Nx, Ny = 170, 100    # Número de puntos en cada dirección
-num_estados = 1000    # Número de estados a calcular
-formato = 'c'
+num_estados = 2000    # Número de estados a calcular
+formato = 'qc'
 archivo_csv = f'output/eigenvalues_{formato}.csv'
 
 # Crear la máscara y la matriz de diferencias finitas
@@ -30,5 +30,5 @@ else:
     autovectores = df.values
 
 # Graficar la densidad de probabilidad para el estado solicitado (altas energías)
-im.plot_densidad_probabilidad(autovectores, mascara, 800)
+im.plot_densidad_probabilidad(autovectores, mascara, 1730)
 
