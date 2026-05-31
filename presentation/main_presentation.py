@@ -8,37 +8,30 @@ from parte4_trayectorias import play_parte4
 from parte5_simetrias import play_parte5
 
 class PresentacionGeneral(Slide):
-    """
-    Escena principal que junta todas las partes de la presentación.
-    """
-    
+
     def construct(self):
-        # Diapositiva de Título General
+
         titulo_principal = Text("Quantum Chaos and the\nStatistics of Energy Levels", font_size=48, color=TEAL)
         subtitulo = Text("Pablo Orellana and María de los Ángeles Lara", font_size=32)
         subtitulo.next_to(titulo_principal, DOWN)
-        
+
         self.play(FadeIn(titulo_principal, shift=UP))
         self.play(Write(subtitulo))
         self.next_slide()
-        
+
         self.play(FadeOut(titulo_principal), FadeOut(subtitulo))
-        
-        # Ejecutamos las funciones importadas
-        # Cada función se encarga de añadir, animar y limpiar su contenido en 'self' (la escena)
-        
+
         play_parte1(self)
         play_parte2(self)
         play_parte3(self)
         play_parte4(self)
         play_parte5(self)
-        
-        # Diapositiva de Cierre
+
         cierre = Text("Thanks for watching", font_size=48)
         mascota = ImageMobject("output/picho.png")
         mascota.scale(1.2)
         mascota.to_corner(DR)
-        
+
         self.play(Write(cierre), FadeIn(mascota))
         self.next_slide()
         self.play(FadeOut(cierre), FadeOut(mascota))

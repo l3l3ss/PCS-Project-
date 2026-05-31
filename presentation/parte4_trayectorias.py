@@ -1,27 +1,22 @@
 from manim import *
 import numpy as np
 
-# ==========================================
-# 1. FUNCIÓN: ESTADIO DE BUNIMOVICH
-# ==========================================
 def generar_estadio(L, R, pos_ini, vel_ini, num_bounces):
-    # Geometría visual
+
     top_line = Line(start=[-L, R, 0], end=[L, R, 0], color=WHITE)
     right_arc = Arc(radius=R, start_angle=-PI/2, angle=PI, arc_center=[L, 0, 0], color=WHITE)
     bottom_line = Line(start=[L, -R, 0], end=[-L, -R, 0], color=WHITE)
     left_arc = Arc(radius=R, start_angle=PI/2, angle=PI, arc_center=[-L, 0, 0], color=WHITE)
     visual_obj = VGroup(top_line, right_arc, bottom_line, left_arc)
-    
-    # Motor de físicas (Ray-tracing)
+
     points = [np.array([pos_ini[0], pos_ini[1], 0])]
     current_pos = pos_ini.copy()
     current_vel = vel_ini / np.linalg.norm(vel_ini)
-    
+
     for _ in range(num_bounces):
         t_min = float('inf')
         n_min = None
-        
-        # Pared Superior (y = R)
+
         if current_vel[1] > 1e-6:
             t = (R - current_pos[1]) / current_vel[1]
             if t > 1e-6:
@@ -29,8 +24,7 @@ def generar_estadio(L, R, pos_ini, vel_ini, num_bounces):
                 if -L <= x_int <= L and t < t_min:
                     t_min = t
                     n_min = np.array([0, -1])
-                    
-        # Pared Inferior (y = -R)
+
         if current_vel[1] < -1e-6:
             t = (-R - current_pos[1]) / current_vel[1]
             if t > 1e-6:
@@ -38,8 +32,7 @@ def generar_estadio(L, R, pos_ini, vel_ini, num_bounces):
                 if -L <= x_int <= L and t < t_min:
                     t_min = t
                     n_min = np.array([0, 1])
-                    
-        # Semicírculo Derecho (Centro en [L, 0])
+
         dp_r = current_pos - np.array([L, 0])
         b_r = np.dot(current_vel, dp_r)
         c_r = np.dot(dp_r, dp_r) - R**2
@@ -52,8 +45,7 @@ def generar_estadio(L, R, pos_ini, vel_ini, num_bounces):
                         t_min = t
                         p_int = current_pos + t * current_vel
                         n_min = -(p_int - np.array([L, 0])) / R
-                        
-        # Semicírculo Izquierdo (Centro en [-L, 0])
+
         dp_l = current_pos - np.array([-L, 0])
         b_l = np.dot(current_vel, dp_l)
         c_l = np.dot(dp_l, dp_l) - R**2
@@ -66,7 +58,7 @@ def generar_estadio(L, R, pos_ini, vel_ini, num_bounces):
                         t_min = t
                         p_int = current_pos + t * current_vel
                         n_min = -(p_int - np.array([-L, 0])) / R
-        
+
         if t_min < float('inf') and n_min is not None:
             current_pos = current_pos + t_min * current_vel
             points.append(np.array([current_pos[0], current_pos[1], 0]))
@@ -74,30 +66,25 @@ def generar_estadio(L, R, pos_ini, vel_ini, num_bounces):
             current_vel = current_vel / np.linalg.norm(current_vel)
         else:
             break
-            
+
     return visual_obj, points
 
-# ==========================================
-# 2. FUNCIÓN: BILLAR RECTANGULAR
-# ==========================================
 def generar_rectangulo(L, R, pos_ini, vel_ini, num_bounces):
-    # Geometría visual
+
     top_line = Line(start=[-L, R, 0], end=[L, R, 0], color=WHITE)
     bottom_line = Line(start=[L, -R, 0], end=[-L, -R, 0], color=WHITE)
     right_line = Line(start=[L, R, 0], end=[L, -R, 0], color=WHITE)
     left_line = Line(start=[-L, -R, 0], end=[-L, R, 0], color=WHITE)
     visual_obj = VGroup(top_line, right_line, bottom_line, left_line)
-    
-    # Motor de físicas (Ray-tracing)
+
     points = [np.array([pos_ini[0], pos_ini[1], 0])]
     current_pos = pos_ini.copy()
     current_vel = vel_ini / np.linalg.norm(vel_ini)
-    
+
     for _ in range(num_bounces):
         t_min = float('inf')
         n_min = None
-        
-        # Pared Superior
+
         if current_vel[1] > 1e-6:
             t = (R - current_pos[1]) / current_vel[1]
             if t > 1e-6:
@@ -105,8 +92,7 @@ def generar_rectangulo(L, R, pos_ini, vel_ini, num_bounces):
                 if -L <= x_int <= L and t < t_min:
                     t_min = t
                     n_min = np.array([0, -1])
-                    
-        # Pared Inferior
+
         if current_vel[1] < -1e-6:
             t = (-R - current_pos[1]) / current_vel[1]
             if t > 1e-6:
@@ -114,8 +100,7 @@ def generar_rectangulo(L, R, pos_ini, vel_ini, num_bounces):
                 if -L <= x_int <= L and t < t_min:
                     t_min = t
                     n_min = np.array([0, 1])
-                    
-        # Pared Derecha
+
         if current_vel[0] > 1e-6:
             t = (L - current_pos[0]) / current_vel[0]
             if t > 1e-6:
@@ -123,8 +108,7 @@ def generar_rectangulo(L, R, pos_ini, vel_ini, num_bounces):
                 if -R <= y_int <= R and t < t_min:
                     t_min = t
                     n_min = np.array([-1, 0])
-                    
-        # Pared Izquierda
+
         if current_vel[0] < -1e-6:
             t = (-L - current_pos[0]) / current_vel[0]
             if t > 1e-6:
@@ -132,7 +116,7 @@ def generar_rectangulo(L, R, pos_ini, vel_ini, num_bounces):
                 if -R <= y_int <= R and t < t_min:
                     t_min = t
                     n_min = np.array([1, 0])
-        
+
         if t_min < float('inf') and n_min is not None:
             current_pos = current_pos + t_min * current_vel
             points.append(np.array([current_pos[0], current_pos[1], 0]))
@@ -140,82 +124,64 @@ def generar_rectangulo(L, R, pos_ini, vel_ini, num_bounces):
             current_vel = current_vel / np.linalg.norm(current_vel)
         else:
             break
-            
+
     return visual_obj, points
 
 def play_parte4(self):
-    """
-    Section 4: Trajectories and States
-    """
-    # =========================================================
-    # SLIDE 0
-    # =========================================================
+
     question = Text(
         "How does this difference\nbetween the chaotic and\nintegrable systems manifest\nin the physical structure\nof the states?",
         font_size=36
     )
-    
+
     self.play(FadeIn(question))
     self.next_slide()
     self.play(FadeOut(question))
-    
-    # =========================================================
-    # SLIDE 1
-    # =========================================================
-    # Probability density introduction
-    
-    # Create a grid of dots where opacity depends on distance to a certain point
+
     dots = VGroup()
     center_prob = LEFT*1 + DOWN*0.5
     for x in np.linspace(-3, 3, 15):
         for y in np.linspace(-2, 2, 10):
             dist = np.sqrt((x - center_prob[0])**2 + (y - center_prob[1])**2)
-            opacity = max(0.1, 1 - dist) # give a little base opacity to all
+            opacity = max(0.1, 1 - dist)
             dot = Dot(point=[x, y, 0], radius=0.08, color=BLUE, fill_opacity=opacity)
             dots.add(dot)
-            
-    # Magnifying glass
+
     mag_glass_circle = Circle(radius=0.8, color=WHITE, stroke_width=4).move_to(center_prob)
     mag_glass_handle = Line(mag_glass_circle.get_corner(DR), mag_glass_circle.get_corner(DR) + RIGHT*0.5 + DOWN*0.5, color=WHITE, stroke_width=6)
     mag_glass = VGroup(mag_glass_circle, mag_glass_handle)
-    
+
     prob_text = MathTex(r"|\psi_{i,j}|^2", font_size=48).next_to(mag_glass_circle, UR, buff=0.5)
-    
+
     self.play(FadeIn(dots))
     self.wait(0.5)
     self.play(Create(mag_glass), Write(prob_text))
     self.next_slide()
-    
+
     self.play(FadeOut(dots), FadeOut(mag_glass), FadeOut(prob_text))
-    
-    # =========================================================
-    # SLIDE 2
-    # =========================================================
-    # Integrable case
+
     title_int = Text("Integrable case", font_size=40).to_edge(UP)
     self.play(Write(title_int))
-    
+
     pos_inicial = np.array([0.2, 0.1])
     angulo = np.deg2rad(41)
     vel_inicial = np.array([np.cos(angulo), np.sin(angulo)])
     rebotes = 30
-    # Para L=3, R=2 tenemos una anchura de 6 y altura de 4 (como antes)
+
     rect_int, puntos_ruta_rect = generar_rectangulo(3.0, 2.0, pos_inicial, vel_inicial, rebotes)
     self.play(Create(rect_int))
-    
-    # Ball bouncing in rectangle
+
     ball = Dot(point=puntos_ruta_rect[0], color=YELLOW)
-    
+
     trail = VMobject(stroke_color=YELLOW, stroke_width=2)
     trail.set_points_as_corners([puntos_ruta_rect[0], puntos_ruta_rect[0]])
-    
+
     self.add(trail)
     self.play(FadeIn(ball))
-    
-    # Calculate lengths for constant speed
+
     lengths = [np.linalg.norm(puntos_ruta_rect[i+1] - puntos_ruta_rect[i]) for i in range(len(puntos_ruta_rect)-1)]
     total_length = sum(lengths)
-    
+
     def get_path_state_rect(alpha):
         if alpha >= 1.0:
             return puntos_ruta_rect[-1], puntos_ruta_rect
@@ -238,52 +204,41 @@ def play_parte4(self):
         run_time=10.0,
         rate_func=linear
     )
-        
+
     self.next_slide()
-    
-    # =========================================================
-    # SLIDE 3
-    # =========================================================
+
     self.play(FadeOut(ball), FadeOut(trail), FadeOut(rect_int))
-    
-    # Image of results
+
     img_int = ImageMobject("output/dens_prob_r_975.png")
     img_int.height = 4.0
-    
+
     exp_text_int = Text(
         "In the previous animation, the areas of highest\nconcentration of the trajectory followed by the\nball are indicated with a colormap.",
         font_size=24
     ).next_to(img_int, DOWN, buff=0.5)
-    
+
     self.play(FadeIn(img_int), Write(exp_text_int))
     self.next_slide()
-    
+
     self.play(FadeOut(img_int), FadeOut(exp_text_int), FadeOut(title_int))
-    
-    # =========================================================
-    # SLIDE 4
-    # =========================================================
-    # Chaotic Billiard
+
     title_chaotic = Text("Chaotic Billiard", font_size=40).to_edge(UP)
     self.play(Write(title_chaotic))
-    
-    # Para L=1.4, R=2 tenemos una parte central de anchura 2.8 y semicírculos de radio 2
+
     stadium, puntos_ruta_estadio = generar_estadio(1.4, 2.0, pos_inicial, vel_inicial, rebotes)
     self.play(Create(stadium))
-    
-    # Ball bouncing in stadium
+
     ball2 = Dot(point=puntos_ruta_estadio[0], color=YELLOW)
-    
+
     trail2 = VMobject(stroke_color=YELLOW, stroke_width=2)
     trail2.set_points_as_corners([puntos_ruta_estadio[0], puntos_ruta_estadio[0]])
-    
+
     self.add(trail2)
     self.play(FadeIn(ball2))
-    
-    # Calculate lengths for constant speed
+
     lengths2 = [np.linalg.norm(puntos_ruta_estadio[i+1] - puntos_ruta_estadio[i]) for i in range(len(puntos_ruta_estadio)-1)]
     total_length2 = sum(lengths2)
-    
+
     def get_path_state_estadio(alpha):
         if alpha >= 1.0:
             return puntos_ruta_estadio[-1], puntos_ruta_estadio
@@ -306,19 +261,15 @@ def play_parte4(self):
         run_time=10.0,
         rate_func=linear
     )
-        
+
     self.next_slide()
-    
-    # =========================================================
-    # SLIDE 5
-    # =========================================================
+
     self.play(FadeOut(ball2), FadeOut(trail2), FadeOut(stadium))
-    
-    # Image of results
+
     img_chaotic = ImageMobject("output/dens_prob_c_800.png")
     img_chaotic.height = 4.5
-    
+
     self.play(FadeIn(img_chaotic))
     self.next_slide()
-    
+
     self.play(FadeOut(img_chaotic), FadeOut(title_chaotic))
