@@ -7,7 +7,7 @@ import os
 Lx, Ly = 1.0, 1.0
 Nx, Ny = 170, 100
 num_estados = 2000
-formato = 'qc'
+formato = 'c'
 archivo_csv = f'output/eigenvalues_{formato}.csv'
 
 mascara = mask.crear_mascara(Nx, Ny, formato=formato, frontera=True)
@@ -25,5 +25,5 @@ else:
     df = pd.read_csv(archivo_csv)
     autovectores = df.values
 
-im.plot_densidad_probabilidad(autovectores, mascara, 1990)
+im.plot_densidad_probabilidad(autovectores, mascara, 1400)
 

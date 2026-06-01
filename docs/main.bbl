@@ -1,8 +1,30 @@
 \begin{thebibliography}{1}
 
+\bibitem{PCSProject}
+María de los~Ángeles Lara and Pablo Orellana.
+\newblock {PCS-Project}.
+\newblock \url{https://github.com/l3l3ss/PCS-Project-}, 2026.
+\newblock Accessed: 2026-05-01.
+
 \bibitem{wisniacki1999caos}
 Diego~Ariel Wisniacki.
 \newblock {\em Caos cu{\'a}ntico en sistemas dependientes de un par{\'a}metro}.
 \newblock PhD thesis, Universidad de Buenos Aires. Facultad de Ciencias Exactas y Naturales, 1999.
+
+\bibitem{ledesma2015introduccion}
+Antonio~Carrillo Ledesma, Karla Ivonne~Gonz{\'a}lez Rosas, and Omar~Mendoza Bernal.
+\newblock Introducci{\'o}n al m{\'e}todo de diferencias finitas y su implementaci{\'o}n computacional.
+\newblock {\em Bernal, Facultad de Ciencias, UNAM}, 2015.
+
+\bibitem{Nakayama2020}
+Hiroki Nakayama.
+\newblock {Random Matrix Theory, Quantum Chaos, and Eigenstate Thermalization}, July 2020.
+\newblock Submitted as coursework for PH470, Stanford University, Spring 2020. \url{http://large.stanford.edu/courses/2020/ph470/nakayama/docs/nakayama-ph470-stanford-spring-2020.pdf}.
+
+\bibitem{WikipediaQuantumScar}
+{Wikipedia contributors}.
+\newblock Quantum scar.
+\newblock \url{https://en.wikipedia.org/wiki/Quantum_scar}, 2026.
+\newblock Wikipedia, The Free Encyclopedia. Accessed: 2026-06-01.
 
 \end{thebibliography}

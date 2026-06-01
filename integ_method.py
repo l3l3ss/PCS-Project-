@@ -109,17 +109,18 @@ def plot_densidad_probabilidad(autovectores, mascara, indice):
     ax2 = fig.add_subplot(122, projection='3d')
 
     im = ax1.imshow(grid, cmap='viridis', origin='lower')
-    ax1.set_title(f'Densidad de probabilidad (mapa de color) - autovector {index}')
+    ax1.set_title(f'Heatmap probability density - Eigenvector {index}')
     ax1.set_xlabel('x')
     ax1.set_ylabel('y')
     fig.colorbar(im, ax=ax1, fraction=0.046, pad=0.04, label=r'$|\psi(x,y)|^2$')
 
     surf = ax2.plot_surface(X, Y, grid, cmap='viridis', edgecolor='none')
-    ax2.set_title(f'Densidad de probabilidad 3D - autovector {index}')
+    ax2.set_title(f'Probability density 3D - Eigenvector {index}')
     ax2.set_xlabel('x')
     ax2.set_ylabel('y', fontsize =10)
-    ax2.set_zlabel(r'$|\psi(x,y)|^2$')
+    ax2.set_zlabel(r'$|\psi(x,y)|^2$', labelpad=10)
     ax2.view_init(elev=30, azim=-60)
 
     plt.tight_layout()
     plt.show()
+
